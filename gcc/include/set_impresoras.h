@@ -1,7 +1,7 @@
 /*****************************************************************************/ 
 /**
-	* @file impresoras.h
-	* @brief Archivo de cabecera del TDA impresoras
+	* @file set_impresoras.h
+	* @brief Archivo de cabecera del TDA set_impresoras
 	* @author Alejandro Castilla Peula
 	* @date Noviembre - 2017
 	*/
@@ -9,8 +9,8 @@
 
 /*****************************************************************************/
 
-#ifndef IMPRESORAS_H
-#define IMPRESORAS_H
+#ifndef SET_IMPRESORAS_H
+#define SET_IMPRESORAS_H
 #define ARCHIVO_CONFIGURACION /etc/cups/printer.conf
 #define DIRECTORIO_SALIDA /tmp/grx-impresoras
 
@@ -31,16 +31,16 @@
 #include <errno.h>
 #include <fstream>
 #include <utility>
-#include <pair>
 #include <vector>
+#include "impresora.h"
 
 using namespace std;
 
 /*
-	Clase IMPRESORAS
+	Clase SET_IMPRESORAS
 */
 
-class impresoras
+class set_impresoras
 {	
 
 public:
@@ -55,7 +55,7 @@ public:
 		escuchar en una @c IP:puerto.
   * 
 */
-	impresoras();
+	set_impresoras();
 
 /****************************** DESTRUCTOR ***********************************/
 
@@ -64,7 +64,7 @@ public:
   * @brief destructor de la clase que se encarga de cerrar el socket.
   * 
 */
-	~impresoras();
+	~set_impresoras();
 
 	
 /******************************************************************************/
@@ -75,7 +75,7 @@ public:
 	@pre el descriptor de socket a asociar debe existir en el objeto @c server_tcp.
 	@return @c true si se establecido la escucha y @c false en caso contrario. 	
 */
-	pair<string,string> get_impresora (int indice);
+	inline impresora get_impresora(int indice);
 	
 /******************************************************************************/ 
 /**
@@ -86,7 +86,7 @@ public:
 	@return @c true si la conexion se ha establecido y @c false en caso contrario. 	
 
 */
-	void set_impresora (pair<string,string> impresora);
+	void set_impresora(impresora printer);
 
 /******************************************************************************/	
 /**
@@ -98,7 +98,7 @@ public:
 	@pre Para enviar los datos debe existir una conexion activa con el cliente.
 	@return @c true si los datos se han enviado y @c false en caso contrario. 	
 */
-	bool enviar(string datos, int & num_bytes, int &msgsock, struct sockaddr_in &cliente);
+//	bool enviar(string datos, int & num_bytes, int &msgsock, struct sockaddr_in &cliente);
 	
 /******************************************************************************/	
 /**
@@ -109,23 +109,18 @@ public:
 	@pre Para recibir los datos debe existir una conexion activa con el equipo destino.
 	@return Un @c string con los datos recibidos. 	
 */
-	string recibir(int size, int & num_bytes, int msgsock, struct sockaddr_in cliente);
+//	string recibir(int size, int & num_bytes, int msgsock, struct sockaddr_in cliente);
 	
 /******************************************************************************/
 
 private:
-	//socket de conexion
-	vector<pair<string,string>> impresoras;
+	//impresoras del equipo
 
-	//Familia ip y puerto del servidor.
-	struct sockaddr_in server;
-
-	//tipo de shocket
-	__socket_type tipo_socket;
+	vector<impresora> impresoras;
 	
-};//Fin de la clase tcp_client
+};//Fin de la clase set_impresoras
 
 
 #endif
 
-/*Fin del archivo impresoras.h*/
+/*Fin del archivo set_impresoras.h*/

@@ -8,9 +8,6 @@
 /*****************************************************************************/
 
 #include "impresora.h"
-#include <string>
-#include <pair>
-#include <map>
 
 /******************************************************************************/ 
  
@@ -22,9 +19,9 @@ impresora::impresora(string descripcion)
 
 /******************************************************************************/
 
-server_tcp::~server_tcp()
+impresora::~impresora()
 {
-	delete this->datos;
+	this->datos.clear();
 }
 
 /******************************************************************************/ 
@@ -40,7 +37,7 @@ void impresora::set_atributo (pair<string,string>& atributo)
 
 /******************************************************************************/
 
-bool server_tcp::enviar(string datos,  int & num_bytes, int &msgsock, struct sockaddr_in &cliente)
+/*bool server_tcp::enviar(string datos,  int & num_bytes, int &msgsock, struct sockaddr_in &cliente)
 {
 	if (tipo_socket != SOCK_DGRAM)
         num_bytes = send(msgsock, datos.c_str(), datos.size(), 0);
@@ -63,12 +60,12 @@ bool server_tcp::enviar(string datos,  int & num_bytes, int &msgsock, struct soc
 	else 
 		cout << "Servidor: UDP server en bucle para mas peticiones\n" << endl;
     return true;
-}
+}*/
 
 
 /******************************************************************************/
 
-string server_tcp::recibir(int size, int & num_bytes, int msgsock, struct sockaddr_in cliente)
+/*string server_tcp::recibir(int size, int & num_bytes, int msgsock, struct sockaddr_in cliente)
 {
 	 // En caso de SOCK_STREAM, el servidor puede hacer recv() y send() en
         // el socket establecido y despues cerrarlo.
@@ -98,7 +95,7 @@ string server_tcp::recibir(int size, int & num_bytes, int msgsock, struct sockad
     datos = buffer;
     datos = datos.substr(0,num_bytes);
 	return datos;
-}
+}*/
 
 /*Fin del archivo impresora.cpp*/
 

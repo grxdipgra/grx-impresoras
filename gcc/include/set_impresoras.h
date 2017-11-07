@@ -23,11 +23,7 @@
 #include <string>	//string
 #include <cstring>
 #include <sys/types.h>  //socket, bind
-#include <sys/socket.h>	//socket, bind
 #include <sys/time.h>
-#include <arpa/inet.h>	//inet_addr
-#include <netinet/in.h>
-#include <netdb.h>	//hostent
 #include <errno.h>
 #include <fstream>
 #include <utility>
@@ -114,9 +110,11 @@ public:
 /******************************************************************************/
 
 private:
-	//impresoras del equipo
-
-	vector<impresora> impresoras;
+	
+	string hostname; //nombre dns del equipo
+	string version_so //version de sistema operativo
+	string nodo; //dirección ip del nodo
+	vector<impresora> impresoras; //impresoras del equipo
 	
 };//Fin de la clase set_impresoras
 

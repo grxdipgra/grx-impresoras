@@ -1,13 +1,6 @@
 CC = g++
-CPPFLAGS = -Wall -std=c++0x -g -I$(INCLUDE) -I$(WIPINCLUDE)
-
-LDFLAGS =  -L$(LIB)/ -lvisca 
-LDWIRI = -L$(WIPILIB)/ -lwiringPi
-
-LIB = ./lib
-WIPILIB = /usr/local/lib
+CPPFLAGS = -Wall -std=c++0x -g -I$(INCLUDE)
 INCLUDE = ./include
-WIPINCLUDE = /usr/local/include
 BIN = ./bin
 SRC = ./src
 OBJ = ./obj

@@ -1,12 +1,10 @@
-/*****************************************************************************/ 
 /**
 	* @file impresora.h
 	* @brief Archivo de cabecera del TDA impresora
-	* @author Alejandro Castilla Peula
-	* @date Noviembre - 2017
+	* @author Alejandro Castilla Peula OSL Diputacion de Granada
+	* @date Noviembre  2017
+	* License: GNU Public License 
 	*/
-/*****************************************************************************/
-
 /*****************************************************************************/
 
 #ifndef IMPRESORA_H
@@ -36,7 +34,7 @@ using namespace std;
 	Clase IMPRESORAS
 */
 
-class impresoras
+class impresora
 {	
 
 public:
@@ -45,19 +43,17 @@ public:
 
 /** 
   * @brief Constructor de la clase que se encarga de la inicializacion de las propiedades del objeto.
-    @param @c familia dominio de comunicaciones, puede ser @c AF_INET o @c PF_INET.
-    @param @c tipo tipo de socket, puede ser @c SOCK_STREAM (TCP) o @c SOCK_DGRAM (UDP).
-    @return Un objeto de tipo @c tcp_client devuelto es un objeto valido de la clase, preparado para 
-		escuchar en una @c IP:puerto.
+    @param @a printers_conf archivo de configuracion de impresoras del sistema
+    @return Un objeto de tipo @c impresora el objeto devuelto es un objeto valido de la clase.
   * 
 */
-	impresora();
+	impresora(const char * printers_conf);
 
 /****************************** DESTRUCTOR ***********************************/
 
 /** 
 
-  * @brief destructor de la clase que se encarga de cerrar el socket.
+  * @brief destructor de la clase.
   * 
 */
 	~impresora();
@@ -65,47 +61,22 @@ public:
 	
 /******************************************************************************/
 /**
-  * @brief asociacion del socket a la interface de red y puerto determinados.
-    @param @c address de tipo @c string con la direccion ip a asociar en formato decimal.
-	@param @c port de tipo @c int con el numero de puerto en el que escuchar.
-	@pre el descriptor de socket a asociar debe existir en el objeto @c server_tcp.
-	@return @c true si se establecido la escucha y @c false en caso contrario. 	
+  * @brief seleciona el atributo @c nombre del objeto.
+    @param @a nombre de clave del atributo a extraer.
+	@return un objeto de tipo @c pair<string,string> con la clave y el valor asociado al atributo. 	
 */
 	pair<string,string> get_atributo(string nombre);
 	
 /******************************************************************************/ 
 /**
 
-  * @brief Establece una conexión con el equipo cliente.
-    @param @a cliente de tipo @c sockaddr_in que recibe los datos de conexión del cliente.
-	@param @a msgsock de tipo @c int que recibe el id del socket a conectar.
-	@return @c true si la conexion se ha establecido y @c false en caso contrario. 	
+  * @brief establece el valor del atributo indicado
+    @param @a atributo nombre de la clave 
+	@param @a valor valor asignado al par de @c clave @a atributo
+	@post se modifica el objeto con la nueva clave @c pair<@a atributo, @a valor> o bien se inserta si no existe. 	
 
 */
-	void set_atributo (pair<string,string> atributo);
-
-/******************************************************************************/	
-/**
-  * @brief Envia datos al equipo conectado al socket.
-    @param @a datos de tipo @c string con los datos a enviar.
-	@param @a num_bytes referencia de tipo @c entero donde se devuelve el numero de bytes enviados.
-	@param @a cliente de tipo @c sockaddr_in que recibe los datos de conexión del cliente.
-	@param @a msgsock de tipo @c int que recibe el id del socket a conectar.
-	@pre Para enviar los datos debe existir una conexion activa con el cliente.
-	@return @c true si los datos se han enviado y @c false en caso contrario. 	
-*/
-//	bool enviar(string datos, int & num_bytes, int &msgsock, struct sockaddr_in &cliente);
-	
-/******************************************************************************/	
-/**
-  * @brief Recibe datos del equipo conectado.
-    @param @a size de tipo @c int con el tamanio del buffer de recepcion.
-	@param @a cliente de tipo @c sockaddr_in que recibe los datos de conexión del cliente.
-	@param @a msgsock de tipo @c int que recibe el id del socket a conectar.
-	@pre Para recibir los datos debe existir una conexion activa con el equipo destino.
-	@return Un @c string con los datos recibidos. 	
-*/
-//	string recibir(int size, int & num_bytes, int msgsock, struct sockaddr_in cliente);
+	void set_atributo (string atributo, string valor);
 	
 /******************************************************************************/
 
@@ -120,4 +91,4 @@ private:
 
 #endif
 
-/*Fin del archivo impresoras.h*/
+/*Fin del archivo impresora.h*/

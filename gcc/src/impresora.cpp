@@ -1,9 +1,9 @@
-/*****************************************************************************/ 
 /**
 	* @file impresora.cpp
-	* @brief Archivo principal del TDA server_tcp
-	* @author Alejandro Castilla Peula
-	* @date Noviembre-2017
+	* @brief Archivo principal del TDA impresora
+	* @author Alejandro Castilla Peula OSL Diputacion de Granada
+	* @date Noviembre 2017
+	* License: GNU Public License 
 	*/
 /*****************************************************************************/
 

@@ -22,11 +22,13 @@
 #include <cstring>
 #include <sys/types.h>  //socket, bind
 #include <sys/time.h>
+#include <sys/utsname.h> //version S.O., hostname, Hardware, etc.
 #include <errno.h>
 #include <fstream>
 #include <utility>
 #include <vector>
 #include "impresora.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -81,9 +83,16 @@ public:
 /******************************************************************************/
 
 private:
-	
-	string hostname; //nombre dns del equipo
-        string version_so; //version de sistema operativo
+
+/********************** FUNCIONES PRIVADAS ************************************/
+
+        utsname* sys_info();
+
+/******************************************************************************/
+
+        //string hostname; //nombre dns del equipo
+        //string version_so; //version de sistema operativo
+        utsname* info_equipo;
 	string nodo; //dirección ip del nodo
 	vector<impresora> impresoras; //impresoras del equipo
 	

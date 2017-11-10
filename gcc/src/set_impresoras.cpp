@@ -10,7 +10,7 @@
 #include "set_impresoras.h"
 #include "impresora.h"
 
-/******************************************************************************/ 
+/******************* FUNCIONES PUBLICAS **************************************/
  
 set_impresoras::set_impresoras()
 {
@@ -46,6 +46,19 @@ const impresora& set_impresoras::operator[](int indice)const
         return impresoras[i];
  }
 
+/******************* FUNCIONES PRIVADAS **************************************/
+
+utsname* sys_info()
+{
+    utsname* info;
+    if ( uname(info) != 0)
+    {
+        cout << "fallo: " << std::strerror(errno) << '\n';
+        log_handle("Error leyendo la configuración del sistema");
+        return "NULL";
+    }
+    else return info;
+}
 
 /******************************************************************************/
 

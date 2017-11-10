@@ -11,6 +11,7 @@
 #define IMPRESORA_H
 #define ARCHIVO_CONFIGURACION /etc/cups/printer.conf
 #define DIRECTORIO_SALIDA /tmp/grx-impresoras
+#define CLAVES ( Printer,  Info,  DeviceUri,  MakeModel, PPD )
 
 /*****************************************************************************/
 #include <iostream>	//cout
@@ -47,7 +48,7 @@ public:
     @return Un objeto de tipo @c impresora el objeto devuelto es un objeto valido de la clase.
   * 
 */
-	impresora(const char * printers_conf);
+        impresora();
 
 /****************************** DESTRUCTOR ***********************************/
 
@@ -63,7 +64,7 @@ public:
 /**
   * @brief seleciona el atributo @c nombre del objeto.
     @param @a nombre de clave del atributo a extraer.
-	@return un objeto de tipo @c pair<string,string> con la clave y el valor asociado al atributo. 	
+    @return un objeto de tipo @c pair<string,string> con la clave y el valor asociado al atributo.
 */
 	pair<string,string> get_atributo(string nombre);
 	
@@ -72,19 +73,32 @@ public:
 
   * @brief establece el valor del atributo indicado
     @param @a atributo nombre de la clave 
-	@param @a valor valor asignado al par de @c clave @a atributo
-	@post se modifica el objeto con la nueva clave @c pair<@a atributo, @a valor> o bien se inserta si no existe. 	
+    @param @a valor valor asignado al par de @c clave @a atributo
+    @post se modifica el objeto con la nueva clave @c pair<@a atributo, @a valor> o bien se inserta si no existe.
 
 */
-	void set_atributo (string atributo, string valor);
+        void set_atributo (const string& key,const string& valor);
 	
 /******************************************************************************/
 
 private:
 	//datos de la impresora, nombre ppd, driver
 	map <string, string> datos;
-	//nombre descriptivo
+        //nombre descriptivo -> campo Printer de printers.conf
 	string descripcion;
+        const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
+        /**
+          Valores de las claves a crear.
+          Printer : nombre de la impresora que es el nombre del ppd
+                    se puede modificar si en la gui se le cambia
+                    el nombre, por lo cual se deb cambiar al campo Info
+                    con los espacios cambiados por "_"
+          Info : nombre del fabricante de la impresora
+          DeviceUri :información del tipo de conexión
+          MakeModel : Descripcion del driver usado (PCL, postscript, etc)
+          PPD : nombre del PPD (se cambia si ha sido modificado). Debe crearse
+                una copia para no romper el sistema.
+          */
 	
 };//Fin de la clase impresora
 

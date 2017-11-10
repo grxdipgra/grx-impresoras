@@ -11,10 +11,17 @@
 
 /******************************************************************************/ 
  
-impresora::impresora(string descripcion)
+impresora::impresora()
 {
+        map<string, string> aux;
 	this->descripcion = descripcion;
 	this->datos = new map <string, string>;
+        aux.second = "NULL";
+        for (int i = 0; i < sizeof(this->claves); ++i)
+        {
+            aux.first = claves[i];
+            datos.insert(aux);
+        }
 }
 
 /******************************************************************************/
@@ -26,13 +33,20 @@ impresora::~impresora()
 
 /******************************************************************************/ 
 
-pair<string,string> impresora::get_atributo(string& nombre)
+const pair<string,string> impresora::get_atributo(const string& nombre)const
 {
+
+        map<char,int>::iterator it;
+        it = datos.find(nombre);
+        return *it;
 }
 /******************************************************************************/ 
 
-void impresora::set_atributo (pair<string,string>& atributo)
+void impresora::set_atributo (const string& key,const string& valor)
 {
+        map<char,int>::iterator it;
+        it = datos.find(nombre);
+        it.second = valor;
 }
 
 /******************************************************************************/

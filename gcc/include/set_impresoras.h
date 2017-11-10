@@ -7,8 +7,6 @@
 	*/
 /*****************************************************************************/
 
-/*****************************************************************************/
-
 #ifndef SET_IMPRESORAS_H
 #define SET_IMPRESORAS_H
 #define ARCHIVO_CONFIGURACION /etc/cups/printer.conf
@@ -45,11 +43,7 @@ public:
 
 /** 
   * @brief Constructor de la clase que se encarga de la inicializacion de las propiedades del objeto.
-    @param @c familia dominio de comunicaciones, puede ser @c AF_INET o @c PF_INET.
-    @param @c tipo tipo de socket, puede ser @c SOCK_STREAM (TCP) o @c SOCK_DGRAM (UDP).
-    @return Un objeto de tipo @c tcp_client devuelto es un objeto valido de la clase, preparado para 
-		escuchar en una @c IP:puerto.
-  * 
+    @return Un objeto de tipo @c set_impresora devuelto es un objeto valido de la clase.
 */
 	set_impresoras();
 
@@ -57,67 +51,43 @@ public:
 
 /** 
 
-  * @brief destructor de la clase que se encarga de cerrar el socket.
-  * 
+  * @brief destructor de la clase que se encarga de liberar el map<string, string>
 */
 	~set_impresoras();
-
 	
 /******************************************************************************/
 /**
-  * @brief asociacion del socket a la interface de red y puerto determinados.
-    @param @c address de tipo @c string con la direccion ip a asociar en formato decimal.
-	@param @c port de tipo @c int con el numero de puerto en el que escuchar.
-	@pre el descriptor de socket a asociar debe existir en el objeto @c server_tcp.
-	@return @c true si se establecido la escucha y @c false en caso contrario. 	
+  * @brief Extrae un objeto impresora del conjunto de impresoras
+    @param @a indice de tipo @c int de la impresora a extraer.
+    @return un objeto de tipo @c impresora.
 */
 	inline impresora get_impresora(int indice);
 	
 /******************************************************************************/ 
 /**
-
-  * @brief Establece una conexión con el equipo cliente.
-    @param @a cliente de tipo @c sockaddr_in que recibe los datos de conexión del cliente.
-	@param @a msgsock de tipo @c int que recibe el id del socket a conectar.
-	@return @c true si la conexion se ha establecido y @c false en caso contrario. 	
-
+  * @brief Inserta una impresora en el objeto impresoras.
+    @param @a printer de tipo @c impresora a insertar en el conjunto.
 */
-	void set_impresora(impresora printer);
+        inline void set_impresora(impresora printer);
 
-/******************************************************************************/	
-/**
-  * @brief Envia datos al equipo conectado al socket.
-    @param @a datos de tipo @c string con los datos a enviar.
-	@param @a num_bytes referencia de tipo @c entero donde se devuelve el numero de bytes enviados.
-	@param @a cliente de tipo @c sockaddr_in que recibe los datos de conexión del cliente.
-	@param @a msgsock de tipo @c int que recibe el id del socket a conectar.
-	@pre Para enviar los datos debe existir una conexion activa con el cliente.
-	@return @c true si los datos se han enviado y @c false en caso contrario. 	
-*/
-//	bool enviar(string datos, int & num_bytes, int &msgsock, struct sockaddr_in &cliente);
-	
-/******************************************************************************/	
-/**
-  * @brief Recibe datos del equipo conectado.
-    @param @a size de tipo @c int con el tamanio del buffer de recepcion.
-	@param @a cliente de tipo @c sockaddr_in que recibe los datos de conexión del cliente.
-	@param @a msgsock de tipo @c int que recibe el id del socket a conectar.
-	@pre Para recibir los datos debe existir una conexion activa con el equipo destino.
-	@return Un @c string con los datos recibidos. 	
-*/
-//	string recibir(int size, int & num_bytes, int msgsock, struct sockaddr_in cliente);
+/******************************************************************************/
+ /**
+   * @brief sobrecarga operador de acceso constante.
+   * @param índice dentro del @c impresoras de la impresora a la que se accede.
+   * @pre el objeto al que se accede no se va a modificar
+ */
+        const impresora& operator[](int indice)const;
 	
 /******************************************************************************/
 
 private:
 	
 	string hostname; //nombre dns del equipo
-	string version_so //version de sistema operativo
+        string version_so; //version de sistema operativo
 	string nodo; //dirección ip del nodo
 	vector<impresora> impresoras; //impresoras del equipo
 	
 };//Fin de la clase set_impresoras
-
 
 #endif
 

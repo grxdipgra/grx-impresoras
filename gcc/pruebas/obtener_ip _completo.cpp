@@ -5,33 +5,12 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/ioctl.h>
-#include <sys/utsname.h>
 #include <netinet/in.h>
 #include <net/if.h>
 #include <arpa/inet.h> //usado por inet_ntoa
 #include <unistd.h>  // Usado por 'close'
 #include <pcap.h>
 #include <netdb.h>
-#include <iostream> //cout
-#include <errno.h> //errno
-
-using namespace std;
-
-/*void sys_info(struct utsname &info)
-{
-	//uname(&info);
-    /*if ( uname(info) != 0)
-    {
-        //cout << "fallo: " << strerror(errno) << '\n';
-        //log_handle("Error leyendo la configuración del sistema");
-        //return utsname*("NULL";
-    }
-}*/
-
-
-
-
-
 
 #define IPTOSBUFFERS    12
 char *iptos(u_long in)
@@ -113,10 +92,6 @@ void ifprint(pcap_if_t *d)
 int
 main()
 {
-
- //struct utsname info;
-
-
  int fd, ret, i;
  struct ifreq ifr;
  char *dev; 
@@ -130,12 +105,19 @@ main()
         printf("%s",errbuf);
     };
 
+//ifprint(interfaces);
+//ifprint(interfaces->next);
     for (aux = interfaces;aux;aux=aux->next) 
 		{ 
 		ifprint(aux);
-
+        //printf("#%d: %s %s %s\n",++i,aux->name,aux->description,aux->addresses);
 		}
-
+    /*printf("select a device: "); 
+    scanf("%d", &devid);  
+    aux=alldevs; 
+    while (--devid)
+    pdev=pdev->next;  
+    printf("Selected %s \n", pdev->name);*/  
 
  dev = pcap_lookupdev(errbuf);
  printf("Device: %s\n", dev);
@@ -146,7 +128,7 @@ main()
  ifr.ifr_addr.sa_family = AF_INET;
 
  /* I want IP address attached to "eth0" */
- strncpy(ifr.ifr_name, "eth0", IFNAMSIZ-1);
+ strncpy(ifr.ifr_name, "lo", IFNAMSIZ-1);
 
  ioctl(fd, SIOCGIFADDR, &ifr);
 
@@ -154,9 +136,6 @@ main()
 
  /* display result */
  printf("%s\n", inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
-
- //uname(&info);
- //printf("%s", info.sysname);
 
  return 0;
 }

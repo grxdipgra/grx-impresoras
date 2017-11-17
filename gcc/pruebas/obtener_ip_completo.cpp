@@ -4,13 +4,12 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <sys/ioctl.h>  //struct ifreq
+#include <sys/ioctl.h>
 #include <sys/utsname.h>
 #include <netinet/in.h>
-#include <net/if.h> //struct ifreq
+#include <net/if.h>
 #include <arpa/inet.h> //usado por inet_ntoa
 #include <unistd.h>  // Usado por 'close'
-#include <netinet/ether.h> // ather_ntoa()
 #include <netdb.h>
 #include <pcap.h>
 #include <netdb.h>
@@ -23,27 +22,15 @@ using namespace std;
 
 void sys_info(struct utsname &info)
 {
-    if ( uname(&info) != 0)
+	uname(&info);
+    if ( uname(info) != 0)
     {
         cout << "fallo: " << strerror(errno) << '\n';
-        //log_handle("Error leyendo la configuración del sistema");
-        //return utsname*("NULL");
+        log_handle("Error leyendo la configuración del sistema");
+        return utsname*("NULL");
     }
 }
 
-bool is_interface_online(string interface) {
-    struct ifreq ifr;
-    int sock = socket(PF_INET6, SOCK_DGRAM, IPPROTO_IP);
-    memset(&ifr, 0, sizeof(ifr));
-    strcpy(ifr.ifr_name, interface.c_str());
-    if (ioctl(sock, SIOCGIFFLAGS, &ifr) < 0) {
-            perror("\tSIOCGIFFLAGS");
-    }
-    close(sock);
-	struct sockaddr_in* ipaddr = (struct sockaddr_in*)&ifr.ifr_addr;
-	printf("\tIP address: %s\n",inet_ntoa(ipaddr->sin_addr));
-    return !!(ifr.ifr_flags & IFF_UP);
-}
 
 char *iptos(u_long in)
 {
@@ -80,12 +67,8 @@ void ifprint(pcap_if_t *d)
   char ip6str[128];
 
   /* Name */
-  printf("\tNombre: %s\n",d->name);
+  printf("%s\n",d->name);
 
-  if (is_interface_online(d->name))
-  {
-	printf("\tActiva: si\n");
-  
   /* Description */
   if (d->description)
     printf("\tDescription: %s\n",d->description);
@@ -123,15 +106,13 @@ void ifprint(pcap_if_t *d)
     }
   }
   printf("\n");
-  }
-  else printf("\tActiva: no\n");
-}	
+}
 
 int
 main()
 {
 
- struct utsname u_name;
+ //utsname* info;
 
  int fd, ret, i;
  struct ifreq ifr;
@@ -145,6 +126,9 @@ main()
     {
         printf("%s",errbuf);
     };
+
+//ifprint(interfaces);
+//ifprint(interfaces->next);
     for (aux = interfaces;aux;aux=aux->next) 
 		{ 
 		ifprint(aux);
@@ -175,15 +159,8 @@ main()
  /* display result */
  printf("%s\n", inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
 
- sys_info(u_name);
- //printf("%s", info.sysname);
-
-  printf("   sysname[] = '%s';\n", u_name.sysname);
-  printf("  nodename[] = '%s';\n", u_name.nodename);
-  printf("   release[] = '%s';\n", u_name.release);
-  printf("   version[] = '%s';\n", u_name.version);
-  printf("   machine[] = '%s';\n", u_name.machine);
-  printf("domainname[] = '%s';\n", u_name.domainname);
+ uname(&info);
+ printf("%s", info.sysname);
 
 
  return 0;

@@ -41,6 +41,7 @@ bool is_interface_online(string interface) {
     }
     close(sock);
 	struct sockaddr_in* ipaddr = (struct sockaddr_in*)&ifr.ifr_addr;
+	strncpy(ifr.ifr_name, "lo", IFNAMSIZ-1);
 	printf("\tIP address: %s\n",inet_ntoa(ipaddr->sin_addr));
     return !!(ifr.ifr_flags & IFF_UP);
 }

@@ -13,7 +13,7 @@
  
 impresora::impresora()
 {
-        map<string, string> aux;
+    map<string, string> aux;
 	this->descripcion = descripcion;
 	this->datos = new map <string, string>;
         aux.second = "NULL";

@@ -1,0 +1,7 @@
+
+# Script php para la adquisición de ficheros y datos:
+#./NuevaImpresora.php
+Array
+(
+)
+

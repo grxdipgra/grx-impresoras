@@ -12,7 +12,7 @@
 
 /******************* FUNCIONES PUBLICAS **************************************/
  
-set_impresoras::set_impresoras()
+set_impresoras::set_impresoras(string ARCHIVO_CONFIGURACION)
 {
 	this->impresoras = new vector<impresora>;
 }

@@ -5,6 +5,7 @@
 	* @date Noviembre 2017
 	* License: GNU Public License 
 	*/
+
 /*****************************************************************************/
 
 #include "impresora.h"
@@ -33,13 +34,14 @@ impresora::~impresora()
 
 /******************************************************************************/ 
 
-const pair<string,string> impresora::get_atributo(const string& nombre)const
+const string impresora::get_atributo(const string& key)const
 {
 
         map<char,int>::iterator it;
-        it = datos.find(nombre);
-        return *it;
+        it = datos.find(key);
+        return it.second;
 }
+
 /******************************************************************************/ 
 
 void impresora::set_atributo (const string& key,const string& valor)
@@ -47,6 +49,14 @@ void impresora::set_atributo (const string& key,const string& valor)
         map<char,int>::iterator it;
         it = datos.find(nombre);
         it.second = valor;
+}
+
+/******************************************************************************/ 
+
+ostream& operator<<(ostream& os, const impresora& impresora)
+{
+	os << "Nombre: " << impresora.get_atributo("Printer") << endl << "Info: " << impresora.get_atributo("Info") << endl << "DeviceUri: " << impresora.get_atributo("DeviceUri") << endl << "MakeModel: " << impresora.get_atributo("MakeModel") << endl <<  "PPD: " << impresora.get_atributo("PPD") << endl; 
+    return os;  
 }
 
 /******************************************************************************/

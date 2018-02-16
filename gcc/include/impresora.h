@@ -48,7 +48,8 @@ public:
     @return Un objeto de tipo @c impresora el objeto devuelto es un objeto valido de la clase.
   * 
 */
-        impresora();
+    impresora();
+
 
 /****************************** DESTRUCTOR ***********************************/
 
@@ -63,10 +64,10 @@ public:
 /******************************************************************************/
 /**
   * @brief seleciona el atributo @c nombre del objeto.
-    @param @a nombre de clave del atributo a extraer.
+    @param @a key de clave del atributo a extraer.
     @return un objeto de tipo @c pair<string,string> con la clave y el valor asociado al atributo.
 */
-	pair<string,string> get_atributo(string nombre);
+	string get_atributo(string key);
 	
 /******************************************************************************/ 
 /**
@@ -77,7 +78,16 @@ public:
     @post se modifica el objeto con la nueva clave @c pair<@a atributo, @a valor> o bien se inserta si no existe.
 
 */
-        void set_atributo (const string& key,const string& valor);
+    void set_atributo (const string& key,const string& valor);
+
+/******************************************************************************/
+
+ /**
+   * @brief sobrecarga operador <<.
+   * @param @c os objeto ostream de salida
+   * @param @c impresora el objeto que se quiere imprimir
+ */
+    friend ostream& operator<<(ostream& os, const impresora& impresora);
 	
 /******************************************************************************/
 
@@ -86,7 +96,7 @@ private:
 	map <string, string> datos;
         //nombre descriptivo -> campo Printer de printers.conf
 	string descripcion;
-        const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
+    const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
         /**
           Valores de las claves a crear.
           Printer : nombre de la impresora que es el nombre del ppd

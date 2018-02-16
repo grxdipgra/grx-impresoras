@@ -47,7 +47,7 @@ public:
   * @brief Constructor de la clase que se encarga de la inicializacion de las propiedades del objeto.
     @return Un objeto de tipo @c set_impresora devuelto es un objeto valido de la clase.
 */
-	set_impresoras();
+	set_impresoras(string printers_conf);
 
 /****************************** DESTRUCTOR ***********************************/
 
@@ -72,6 +72,14 @@ public:
 */
         inline void set_impresora(impresora printer);
 
+
+/******************************************************************************/ 
+/**
+  * @brief obtiene el numero de impresoras del sistema.
+    @return el numero de impresoras.
+*/
+		inline const unsigned char set_impresoras::size();
+
 /******************************************************************************/
  /**
    * @brief sobrecarga operador de acceso constante.
@@ -79,6 +87,15 @@ public:
    * @pre el objeto al que se accede no se va a modificar
  */
         const impresora& operator[](int indice)const;
+	
+/******************************************************************************/
+
+ /**
+   * @brief sobrecarga operador <<.
+   * @param @c os objeto ostream de salida
+   * @param @c impresoras el objeto que se quiere imprimir
+ */
+        friend ostream& operator<<(ostream& os, const set_impresoras& impresoras);
 	
 /******************************************************************************/
 
@@ -90,9 +107,9 @@ private:
 
 /******************************************************************************/
 
-        //string hostname; //nombre dns del equipo
-        //string version_so; //version de sistema operativo
-        utsname* info_equipo;
+    //string hostname; //nombre dns del equipo
+    //string version_so; //version de sistema operativo
+    utsname* info_equipo;
 	string nodo; //dirección ip del nodo
 	vector<impresora> impresoras; //impresoras del equipo
 	

@@ -9,8 +9,6 @@
 
 #ifndef SET_IMPRESORAS_H
 #define SET_IMPRESORAS_H
-#define ARCHIVO_CONFIGURACION /etc/cups/printer.conf
-#define DIRECTORIO_SALIDA /tmp/grx-impresoras
 
 /*****************************************************************************/
 #include <iostream>	//cout
@@ -24,11 +22,11 @@
 #include <sys/time.h>
 #include <sys/utsname.h> //version S.O., hostname, Hardware, etc.
 #include <errno.h>
+#include <assert.h> //assert()
 #include <fstream>
 #include <utility>
 #include <vector>
 #include "impresora.h"
-#include "utils.h"
 
 using namespace std;
 
@@ -78,7 +76,7 @@ public:
   * @brief obtiene el numero de impresoras del sistema.
     @return el numero de impresoras.
 */
-		inline const unsigned char set_impresoras::size();
+		inline const unsigned char size();
 
 /******************************************************************************/
  /**

@@ -1,6 +1,7 @@
 CC = g++
-CPPFLAGS = -Wall -std=c++0x -g -I$(INCLUDE)
+CPPFLAGS = -Wall -std=c++0x -g -I$(INCLUDE) -I$(INCLUDE_STD)
 INCLUDE = ./include
+INCLUDE_STD = /usr/lib/include
 BIN = ./bin
 SRC = ./src
 OBJ = ./obj

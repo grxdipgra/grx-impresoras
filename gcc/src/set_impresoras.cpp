@@ -18,7 +18,6 @@ using namespace std;
  
 set_impresoras::set_impresoras(string config = ARCHIVO_CONFIGURACION)
 {
-	impresoras = new vector<impresora>;
 	impresora aux;
 	ifstream printers_conf;
     string nombre = ARCHIVO_CONFIGURACION;
@@ -57,11 +56,12 @@ set_impresoras::set_impresoras(string config = ARCHIVO_CONFIGURACION)
 			cout << "******************" << endl;
 			}
 		aux.set_atributo("Printer", printer);
-		aux.set_atributo("PPD", printer.ppd);
+		ppd = printer + ppd;
+		aux.set_atributo("PPD", ppd);
 		aux.set_atributo("Info", info);	
 		aux.set_atributo("DeviceUri",conexion);
 		aux.set_atributo("MakeModel",driver);
-		impresoras.set_impresora(aux);
+		impresoras.push_back(aux);
         }
         printers_conf.close();
     }
@@ -86,7 +86,7 @@ impresora set_impresoras::get_impresora(int indice)
 
 void set_impresoras::set_impresora(impresora printer)
 {   
-	impresoras.insert(printer);
+	impresoras.push_back(printer);
 }
 
 /******************************************************************************/
@@ -100,13 +100,14 @@ const unsigned char set_impresoras::size()
 
 const impresora& set_impresoras::operator[](int indice)const
 {
-    assert(i>=0 && i<Size(this->impresoras));
+	int i;
+    assert(i >= 0 && i < (int)impresoras.size());
     return impresoras[i];
  }
 
 /******************************************************************************/
 
-ostream& operator<<(ostream& os, const set_impresoras& impresoras)
+ostream& operator<<(ostream& os, set_impresoras& impresoras)
 {
 	for (int i = 0 ; i< (int)impresoras.size() ; ++i)
 	{
@@ -123,10 +124,9 @@ utsname* sys_info()
     if ( uname(info) != 0)
     {
         cout << "fallo: " << std::strerror(errno) << '\n';
-        log_handle("Error leyendo la configuración del sistema");
-        return "NULL";
+        //log_handle("Error leyendo la configuración del sistema");
     }
-    else return info;
+    return info;
 }
 
 /******************************************************************************/

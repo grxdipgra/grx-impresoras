@@ -9,7 +9,7 @@
 
 #ifndef IMPRESORA_H
 #define IMPRESORA_H
-#define ARCHIVO_CONFIGURACION /etc/cups/printer.conf
+#define ARCHIVO_CONFIGURACION "/etc/cups/printer.conf"
 #define DIRECTORIO_SALIDA /tmp/grx-impresoras
 #define CLAVES ( Printer,  Info,  DeviceUri,  MakeModel, PPD )
 
@@ -26,7 +26,7 @@
 #include <sys/time.h>
 #include <errno.h>
 #include <fstream>
-#include <pair>
+#include <utility>
 #include <map>
 
 using namespace std;
@@ -34,6 +34,8 @@ using namespace std;
 /*
 	Clase IMPRESORAS
 */
+
+const static string claves[5] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
 
 class impresora
 {	
@@ -67,7 +69,7 @@ public:
     @param @a key de clave del atributo a extraer.
     @return un objeto de tipo @c pair<string,string> con la clave y el valor asociado al atributo.
 */
-	string get_atributo(string key);
+	const string get_atributo(const string& key);
 	
 /******************************************************************************/ 
 /**
@@ -94,9 +96,9 @@ public:
 private:
 	//datos de la impresora, nombre ppd, driver
 	map <string, string> datos;
-        //nombre descriptivo -> campo Printer de printers.conf
-	string descripcion;
-    const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
+    //nombre descriptivo -> campo Printer de printers.conf
+	//string descripcion;
+    //const static string claves[5] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
         /**
           Valores de las claves a crear.
           Printer : nombre de la impresora que es el nombre del ppd

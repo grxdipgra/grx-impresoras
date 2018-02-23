@@ -13,14 +13,17 @@
 /******************************************************************************/ 
  
 impresora::impresora()
-{
+{ 
+	//cout << "Constructor impresora" << endl;
 	pair <string,string> aux;
-	for (int i = 0; i < (int)sizeof(claves); ++i)
-    {
+	//cout << "Numero de claves: " << NUMCLAVES << endl;
+	for (int i = 0; i < NUMCLAVES; ++i)
+    {	
 		aux.first = claves[i];
 		aux.second = "NULL";
 		datos.insert(aux);  	
 	}
+	//cout << "Fin constructor impresora" << endl;
 }
 
 /******************************************************************************/
@@ -34,19 +37,14 @@ impresora::~impresora()
 
 const string impresora::get_atributo(const string& key)
 {
-
-        map<string,string>::iterator it;
-        it = datos.find(key);
-        return it->second;
+        return datos.find(key)->second;
 }
 
 /******************************************************************************/ 
 
-void impresora::set_atributo (const string& key,const string& valor)
+void impresora::set_atributo (const string& key, const string& valor)
 {
-        map<string,string>::iterator it;
-        it = datos.find(key);
-        it->second = valor;
+        datos.find(key)->second = valor;
 }
 
 /******************************************************************************/ 

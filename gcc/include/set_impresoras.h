@@ -27,6 +27,7 @@
 #include <utility>
 #include <vector>
 #include "impresora.h"
+#include "util.h"
 
 using namespace std;
 
@@ -45,7 +46,7 @@ public:
   * @brief Constructor de la clase que se encarga de la inicializacion de las propiedades del objeto.
     @return Un objeto de tipo @c set_impresora devuelto es un objeto valido de la clase.
 */
-	set_impresoras(string printers_conf);
+	set_impresoras();
 
 /****************************** DESTRUCTOR ***********************************/
 
@@ -68,7 +69,7 @@ public:
   * @brief Inserta una impresora en el objeto impresoras.
     @param @a printer de tipo @c impresora a insertar en el conjunto.
 */
-        inline void set_impresora(impresora printer);
+    inline void set_impresora(impresora printer);
 
 
 /******************************************************************************/ 
@@ -76,7 +77,7 @@ public:
   * @brief obtiene el numero de impresoras del sistema.
     @return el numero de impresoras.
 */
-		inline const unsigned char size();
+	inline const size_t size();
 
 /******************************************************************************/
  /**
@@ -84,7 +85,7 @@ public:
    * @param índice dentro del @c impresoras de la impresora a la que se accede.
    * @pre el objeto al que se accede no se va a modificar
  */
-        const impresora& operator[](int indice)const;
+    impresora& operator[](int indice);
 	
 /******************************************************************************/
 
@@ -93,7 +94,7 @@ public:
    * @param @c os objeto ostream de salida
    * @param @c impresoras el objeto que se quiere imprimir
  */
-        friend ostream& operator<<(ostream& os, const set_impresoras& impresoras);
+        //friend ostream& operator<<(ostream& os, set_impresoras& impresoras);
 	
 /******************************************************************************/
 
@@ -101,7 +102,7 @@ private:
 
 /********************** FUNCIONES PRIVADAS ************************************/
 
-        utsname* sys_info();
+    utsname* sys_info();
 
 /******************************************************************************/
 

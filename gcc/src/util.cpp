@@ -9,6 +9,8 @@
 
 /******************************************************************************/
 
+#include <util.h>
+
 bool ExisteFichero(const char* nombre)
 {
 	ifstream fichero;
@@ -25,9 +27,9 @@ bool ExisteFichero(const char* nombre)
 
 /******************* LOG *****************************/
 
-void log_handle(string log){
+//void log_handle(string log){
 /*http://stackoverflow.com/questions/10952515/c-c-syslog-to-custom-file-not-var-log-syslog-but-var-log-mylog-ubuntu-12*/
-    openlog(NULL, 0, LOG_USER);
-    syslog(LOG_INFO, (char*)log.c_str());
-    setbuf(stdout,0);
-}
+//    openlog(NULL, 0, LOG_USER);
+//    syslog(LOG_INFO, (char*)log.c_str());
+//    setbuf(stdout,0);
+//}

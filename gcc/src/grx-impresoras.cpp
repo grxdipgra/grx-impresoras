@@ -26,11 +26,17 @@
 #include <stdlib.h>  // itoa() atol()
 #include <sstream>	
 
-int main()
+int main(int argc, char **argv)
 {
 
-    impresoras impresoras_equipo;
-    cout << impresoras_equipo  
+    set_impresoras impresoras_equipo;
+	//impresora aux;
+	for (int i=0 ; i < NUMCLAVES ; i++){
+		cout << "*******************" << endl ;
+		cout << impresoras_equipo[i];
+		cout << "*******************" << endl ;
+	}
+    //cout << impresoras_equipo.size();  
 	return 0;
 }
 

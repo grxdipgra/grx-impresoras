@@ -8,12 +8,17 @@
 
 /******************************************************************************/
 
-#ifndef _UTILS_H_
-#define _UTILS_H_
+#ifndef _UTIL_H_
+#define _UTIL_H_
 
 /******************************************************************************/
-
+#include <stdlib.h>
+#include <string>
+#include <iostream>
 #include <fstream>
+#include <sstream>
+
+using namespace std;
 
 /******************************************************************************/
 
@@ -23,6 +28,8 @@
   * @retval true si el archivo existe y puede ser abierto.
   * @retval false en caso contrario.
   */
+
 bool ExisteFichero(const char* nombre);
 
 /******************************************************************************/
+#endif

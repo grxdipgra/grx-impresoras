@@ -9,7 +9,8 @@
 
 #ifndef IMPRESORA_H
 #define IMPRESORA_H
-#define ARCHIVO_CONFIGURACION "/etc/cups/printer.conf"
+#define ARCHIVO_CONFIGURACION "/etc/cups/printers.conf"
+#define NUMCLAVES 5
 #define DIRECTORIO_SALIDA /tmp/grx-impresoras
 #define CLAVES ( Printer,  Info,  DeviceUri,  MakeModel, PPD )
 
@@ -35,7 +36,7 @@ using namespace std;
 	Clase IMPRESORAS
 */
 
-const static string claves[5] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
+const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
 
 class impresora
 {	
@@ -89,7 +90,7 @@ public:
    * @param @c os objeto ostream de salida
    * @param @c impresora el objeto que se quiere imprimir
  */
-    friend ostream& operator<<(ostream& os, const impresora& impresora);
+    friend ostream& operator<<(ostream& os, impresora& impresora);
 	
 /******************************************************************************/
 

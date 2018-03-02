@@ -1,4 +1,4 @@
-/*****************************************************************************/ 
+/*****************************************************************************/
 /**
 	* @file set_impresoras.h
 	* @brief Archivo de cabecera del TDA set_impresoras
@@ -26,6 +26,13 @@
 #include <fstream>
 #include <utility>
 #include <vector>
+#include <ifaddrs.h> //ip address
+#include <netinet/in.h> // ip address
+#include <arpa/inet.h> // ip address
+#include <sys/ioctl.h>
+#include <net/if.h>
+#include <sys/socket.h>
+#include <unistd.h>
 #include "impresora.h"
 #include "util.h"
 
@@ -36,13 +43,13 @@ using namespace std;
 */
 
 class set_impresoras
-{	
+{
 
 public:
 
 /****************************** CONSTRUCTOR ***********************************/
 
-/** 
+/**
   * @brief Constructor de la clase que se encarga de la inicializacion de las propiedades del objeto.
     @return Un objeto de tipo @c set_impresora devuelto es un objeto valido de la clase.
 */
@@ -50,12 +57,12 @@ public:
 
 /****************************** DESTRUCTOR ***********************************/
 
-/** 
+/**
 
   * @brief destructor de la clase que se encarga de liberar el map<string, string>
 */
 	~set_impresoras();
-	
+
 /******************************************************************************/
 /**
   * @brief Extrae un objeto impresora del conjunto de impresoras
@@ -63,8 +70,8 @@ public:
     @return un objeto de tipo @c impresora.
 */
 	inline impresora get_impresora(int indice);
-	
-/******************************************************************************/ 
+
+/******************************************************************************/
 /**
   * @brief Inserta una impresora en el objeto impresoras.
     @param @a printer de tipo @c impresora a insertar en el conjunto.
@@ -72,12 +79,12 @@ public:
     inline void set_impresora(impresora printer);
 
 
-/******************************************************************************/ 
+/******************************************************************************/
 /**
   * @brief obtiene el numero de impresoras del sistema.
     @return el numero de impresoras.
 */
-	inline const size_t size();
+		size_t size();
 
 /******************************************************************************/
  /**
@@ -86,7 +93,7 @@ public:
    * @pre el objeto al que se accede no se va a modificar
  */
     impresora& operator[](int indice);
-	
+
 /******************************************************************************/
 
  /**
@@ -94,24 +101,26 @@ public:
    * @param @c os objeto ostream de salida
    * @param @c impresoras el objeto que se quiere imprimir
  */
-        //friend ostream& operator<<(ostream& os, set_impresoras& impresoras);
-	
+  	friend ostream& operator<<(ostream& os, set_impresoras& impresoras);
+
 /******************************************************************************/
 
 private:
 
 /********************** FUNCIONES PRIVADAS ************************************/
 
-    utsname* sys_info();
+		void ip_nodo ();
+		void sys_info();
+		string get_mac (string interface);
 
 /******************************************************************************/
 
     //string hostname; //nombre dns del equipo
     //string version_so; //version de sistema operativo
-    utsname* info_equipo;
+  struct utsname info_equipo;
 	string nodo; //dirección ip del nodo
 	vector<impresora> impresoras; //impresoras del equipo
-	
+
 };//Fin de la clase set_impresoras
 
 #endif

@@ -1,4 +1,4 @@
-/*****************************************************************************/ 
+/*****************************************************************************/
 /**
 * @file grx-impresoras.cpp
 * @brief Archivo principal del programa grx-impresoras. Para la ejecución del programa se
@@ -24,19 +24,17 @@
 #include <signal.h>
 #include <syslog.h>   // funciones del sistema de log
 #include <stdlib.h>  // itoa() atol()
-#include <sstream>	
+#include <sstream>
 
 int main(int argc, char **argv)
 {
-
     set_impresoras impresoras_equipo;
 	//impresora aux;
-	for (int i=0 ; i < NUMCLAVES ; i++){
+	//for (int i=0 ; i < (int)impresoras_equipo.size() ; i++){
+		cout << impresoras_equipo;
 		cout << "*******************" << endl ;
-		cout << impresoras_equipo[i];
-		cout << "*******************" << endl ;
-	}
-    //cout << impresoras_equipo.size();  
+	//}
+    cout << "Número de impresoras:" <<  impresoras_equipo.size() << endl;
 	return 0;
 }
 

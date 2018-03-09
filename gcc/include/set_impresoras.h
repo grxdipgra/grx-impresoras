@@ -66,10 +66,10 @@ public:
 /******************************************************************************/
 /**
   * @brief Extrae un objeto impresora del conjunto de impresoras
-    @param @a indice de tipo @c int de la impresora a extraer.
+    @param @a nombre de tipo @c string de la impresora a extraer.
     @return un objeto de tipo @c impresora.
 */
-	inline impresora get_impresora(int indice);
+	/*inline impresora get_impresora(string nombre);*/
 
 /******************************************************************************/
 /**

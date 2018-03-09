@@ -88,10 +88,12 @@ set_impresoras::~set_impresoras()
 
 /******************************************************************************/
 
-impresora set_impresoras::get_impresora(int indice)
+/*impresora set_impresoras::get_impresora(string nombre)
 {
-	return impresoras[indice];
-}
+	map<string,string>::iterator it;
+	it = impresoras.find(nombre);
+	return
+}*/
 
 /******************************************************************************/
 

@@ -172,13 +172,14 @@ void set_impresoras::ip_nodo ()
 						if (!((ifa->ifa_flags & IFF_LOOPBACK) == IFF_LOOPBACK) &&
 								 ((ifa->ifa_flags & IFF_UP)) == IFF_UP &&
 								 (get_mac(ifa->ifa_name) != "00:00:00:00:00:00")){
+							mac = get_mac(ifa->ifa_name);
+							nodo = addressBuffer;
 							//cout << "Interface:" << ifa->ifa_name << endl;
 							//cout << "IP: " << addressBuffer << endl;
-							nodo = addressBuffer;
             	//cout << "Flags:" << ifa->ifa_flags << endl;
             	//cout << "Is up:" << (ifa->ifa_flags & IFF_UP) << endl;
             	//cout << "Esta activa:" << (ifa->ifa_flags & IFF_RUNNING) << endl;
-            	mac = get_mac(ifa->ifa_name);
+
 						}
 					}
     }

@@ -17,7 +17,7 @@
 #include <time.h>
 #include <string.h>	//strlen
 #include <string>	//string
-#include <cstring>
+#include <cstring> //c_str()
 #include <sys/types.h>  //socket, bind
 #include <sys/time.h>
 #include <sys/utsname.h> //version S.O., hostname, Hardware, etc.
@@ -118,6 +118,8 @@ private:
     //string hostname; //nombre dns del equipo
     //string version_so; //version de sistema operativo
   struct utsname info_equipo;
+	string hostname;
+	string mac;
 	string nodo; //dirección ip del nodo
 	vector<impresora> impresoras; //impresoras del equipo
 

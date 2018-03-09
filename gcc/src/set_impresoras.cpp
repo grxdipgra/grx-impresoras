@@ -32,10 +32,9 @@ set_impresoras::set_impresoras()
   sys_info();
   ip_nodo();
 
-	cout << "Archivo de configuración es: " << nombre << endl ;
- 	if (ExisteFichero(nombre.c_str()))
-	{
-    	printers_conf.open ( nombre.c_str() , ios::in);
+	//cout << "Archivo de configuración es: " << nombre << endl ;
+  printers_conf.open ( nombre.c_str() , ios::in);
+	if(printers_conf.good()){
     	if (printers_conf.is_open()) {
         	while (! printers_conf.eof() ) {
             	getline (printers_conf,linea);
@@ -70,10 +69,14 @@ set_impresoras::set_impresoras()
 				}
         	}
         	printers_conf.close();
+
     	}
-    	else cout << "Fichero inexistente o faltan permisos para abrirlo" << endl;
 	}
-	else cout << "El fichero de configuración no existe" << endl;
+	else {
+		cerr << "\033[1;31mError: \033[0m";
+		cerr << "Fallo al abrir el fichero de configuración. ";
+		cerr  << strerror(errno) << "." << endl;
+	}
 }
 
 /******************************************************************************/
@@ -116,16 +119,22 @@ impresora& set_impresoras::operator[](int indice)
 
 ostream& operator<<(ostream& os, set_impresoras& impresoras)
 {
+	os << "\033[1;36mInfo del sistema: \033[0m" << endl << endl;
+	os << "\033[1;32mSistema: \033[0m" << impresoras.info_equipo.sysname << endl;
+	os << "\033[1;32mHostname: \033[0m" << impresoras.hostname << endl;
+	os << "\033[1;32mKernel: \033[0m" << impresoras.info_equipo.release << endl;
+	os << "\033[1;32mBase: \033[0m" << impresoras.info_equipo.version << endl;
+	os << "\033[1;32mArch: \033[0m" << impresoras.info_equipo.machine << endl;
+	os << "\033[1;32mNombre dominio: \033[0m" << impresoras.info_equipo.domainname << endl;
+	os << "\033[1;32mIP: \033[0m" << impresoras.nodo << endl;
+	os << "\033[1;32mMAC: \033[0m" << impresoras.mac << endl << endl;
+
+	os << "\033[1;36mNúmero de impresoras: \033[0m" << impresoras.size() << endl << endl;
+
 	for (int i = 0 ; i< (int)impresoras.size() ; ++i)
 	{
 		os << impresoras[i] << endl;
 	}
-  os << "Sistema: " << impresoras.info_equipo.sysname;
-  os << " " << impresoras.info_equipo.nodename << endl;
-  os << "Kernel: " << impresoras.info_equipo.release << endl;
-  os << "Base: " << impresoras.info_equipo.version << endl;
-  os << "Arch: " << impresoras.info_equipo.machine << endl;
-  os << "Nodo: " << impresoras.info_equipo.domainname << endl;
   return os;
 }
 
@@ -138,6 +147,7 @@ void set_impresoras::sys_info()
         cout << "fallo: " << std::strerror(errno) << '\n';
         //log_handle("Error leyendo la configuración del sistema");
     }
+		hostname = info_equipo.nodename;
 }
 
 /******************************************************************************/
@@ -159,14 +169,18 @@ void set_impresoras::ip_nodo ()
             tmpAddrPtr=&((struct sockaddr_in *)ifa->ifa_addr)->sin_addr;
             char addressBuffer[INET_ADDRSTRLEN];
             inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
-            printf("%s IP Address %s\n", ifa->ifa_name, addressBuffer);
-            cout << "Flags:" << ifa->ifa_flags << endl;
-            cout << "Is up:" << (ifa->ifa_flags & IFF_UP) << endl;
-            if ((ifa->ifa_flags & IFF_LOOPBACK) == IFF_LOOPBACK)
-            cout << "Es Loopback" << endl;
-            cout << "Esta activa:" << (ifa->ifa_flags & IFF_RUNNING) << endl;
-            get_mac(ifa->ifa_name);
-        }
+						if (!((ifa->ifa_flags & IFF_LOOPBACK) == IFF_LOOPBACK) &&
+								 ((ifa->ifa_flags & IFF_UP)) == IFF_UP &&
+								 (get_mac(ifa->ifa_name) != "00:00:00:00:00:00")){
+							//cout << "Interface:" << ifa->ifa_name << endl;
+							//cout << "IP: " << addressBuffer << endl;
+							nodo = addressBuffer;
+            	//cout << "Flags:" << ifa->ifa_flags << endl;
+            	//cout << "Is up:" << (ifa->ifa_flags & IFF_UP) << endl;
+            	//cout << "Esta activa:" << (ifa->ifa_flags & IFF_RUNNING) << endl;
+            	mac = get_mac(ifa->ifa_name);
+						}
+					}
     }
     if (ifAddrStruct!=NULL) freeifaddrs(ifAddrStruct);
 }
@@ -192,7 +206,7 @@ string set_impresoras::get_mac (string interface)
     mac.append(":");
 	}
   mac.resize(mac.size()-1);
-  cout << "MAC_string: " << mac << endl;
+  //cout << "MAC_string: " << mac << endl;
   return mac;
 }
 

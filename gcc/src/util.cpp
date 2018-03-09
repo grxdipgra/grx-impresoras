@@ -4,7 +4,7 @@
   * Implementa la interfaz de utils.h
   * @author Alejandro Castilla Peula OSL Diputacion de Granada
   * @date Noviembre 2017
-  * License: GNU Public License 
+  * License: GNU Public License
   */
 
 /******************************************************************************/
@@ -19,7 +19,8 @@ bool ExisteFichero(const char* nombre)
 	fichero.open(nombre);
 	problema=fichero.fail();
 	if(!problema) fichero.close();
-
+	if(!fichero.good())
+  	cerr << "Error: " << strerror(errno) << endl;
 	return ((problema)?false:true);
 }
 

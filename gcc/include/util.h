@@ -1,9 +1,9 @@
 /**
   * @file utils.h
-  * @brief Fichero cabecera con utilidades 
+  * @brief Fichero cabecera con utilidades
   * @author Alejandro Castilla Peula OSL Diputacion de Granada
   * @date Novienbre 2017
-  * License: GNU Public License 
+  * License: GNU Public License
   */
 
 /******************************************************************************/
@@ -17,6 +17,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string.h> // strerror()
+#include <cstring>
 
 using namespace std;
 

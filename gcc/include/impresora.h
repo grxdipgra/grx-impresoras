@@ -3,22 +3,23 @@
 	* @brief Archivo de cabecera del TDA impresora
 	* @author Alejandro Castilla Peula OSL Diputacion de Granada
 	* @date Noviembre  2017
-	* License: GNU Public License 
+	* License: GNU Public License
 	*/
 /*****************************************************************************/
 
 #ifndef IMPRESORA_H
 #define IMPRESORA_H
 #define ARCHIVO_CONFIGURACION "/etc/cups/printers.conf"
-#define NUMCLAVES 5
+#define NUMCLAVES 6
 #define DIRECTORIO_SALIDA /tmp/grx-impresoras
-#define CLAVES ( Printer,  Info,  DeviceUri,  MakeModel, PPD )
+#define CLAVES ( Printer,  Info,  DeviceUri,  MakeModel, PPD, StateTime )
 
 /*****************************************************************************/
 #include <iostream>	//cout
 #include <stdio.h>	//printf
 #include <stdlib.h>
-#include <time.h>
+#include <ctime> //manejo de fechas
+#include <time.h> // time(), localtime(), manejo de fechas
 #include <string.h>	//strlen
 #include <string>	//string
 #include <cstring>
@@ -36,34 +37,34 @@ using namespace std;
 	Clase IMPRESORAS
 */
 
-const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
+const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD", "StateTime" };
 
 class impresora
-{	
+{
 
 public:
 
 /****************************** CONSTRUCTOR ***********************************/
 
-/** 
+/**
   * @brief Constructor de la clase que se encarga de la inicializacion de las propiedades del objeto.
     @param @a printers_conf archivo de configuracion de impresoras del sistema
     @return Un objeto de tipo @c impresora el objeto devuelto es un objeto valido de la clase.
-  * 
+  *
 */
     impresora();
 
 
 /****************************** DESTRUCTOR ***********************************/
 
-/** 
+/**
 
   * @brief destructor de la clase.
-  * 
+  *
 */
 	~impresora();
 
-	
+
 /******************************************************************************/
 /**
   * @brief seleciona el atributo @c nombre del objeto.
@@ -71,12 +72,16 @@ public:
     @return un objeto de tipo @c pair<string,string> con la clave y el valor asociado al atributo.
 */
 	const string get_atributo(const string& key);
-	
-/******************************************************************************/ 
+
+/******************************************************************************/
+
+string get_tiempo();
+string get_tiempo_sin_uso();
+
 /**
 
   * @brief establece el valor del atributo indicado
-    @param @a atributo nombre de la clave 
+    @param @a atributo nombre de la clave
     @param @a valor valor asignado al par de @c clave @a atributo
     @post se modifica el objeto con la nueva clave @c pair<@a atributo, @a valor> o bien se inserta si no existe.
 
@@ -91,7 +96,7 @@ public:
    * @param @c impresora el objeto que se quiere imprimir
  */
     friend ostream& operator<<(ostream& os, impresora& impresora);
-	
+
 /******************************************************************************/
 
 private:
@@ -99,7 +104,7 @@ private:
 	map <string, string> datos;
     //nombre descriptivo -> campo Printer de printers.conf
 	//string descripcion;
-    //const static string claves[5] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD" };
+    //const static string claves[5] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD", StateTime };
         /**
           Valores de las claves a crear.
           Printer : nombre de la impresora que es el nombre del ppd
@@ -112,7 +117,7 @@ private:
           PPD : nombre del PPD (se cambia si ha sido modificado). Debe crearse
                 una copia para no romper el sistema.
           */
-	
+
 };//Fin de la clase impresora
 
 

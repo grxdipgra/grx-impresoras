@@ -23,11 +23,12 @@ set_impresoras::set_impresoras()
   string nombre = ARCHIVO_CONFIGURACION;
   string comienzo_impresora = "<Printer";
 	string fin_impresora = "</Printer>";
-	string printer, info, conexion, driver;
+	string printer, info, conexion, driver, uso;
 	string comienzo_info = "Info";
 	string comienzo_conexion = "DeviceURI";
 	string comienzo_driver = "MakeModel";
 	string ppd = ".ppd";
+	string ultimo_uso = "StateTime";
 	string linea;
   sys_info();
   ip_nodo();
@@ -56,6 +57,10 @@ set_impresoras::set_impresoras()
 							driver = linea.substr(10,linea.length()-10);
 							//cout << "Driver: " << driver << endl;
 						}
+						if(linea.find(ultimo_uso) != string::npos){
+							uso = linea.substr(10,linea.length()-10);
+							//cout << "Driver: " << driver << endl;
+						}
 					}
 				//cout << "******************" << endl;
 				aux.set_atributo("Printer", printer);
@@ -65,6 +70,7 @@ set_impresoras::set_impresoras()
 				aux.set_atributo("Info", info);
 				aux.set_atributo("DeviceUri",conexion);
 				aux.set_atributo("MakeModel",driver);
+				aux.set_atributo("StateTime",uso);
 				impresoras.push_back(aux);
 				}
         	}
@@ -173,6 +179,7 @@ void set_impresoras::ip_nodo ()
             inet_ntop(AF_INET, tmpAddrPtr, addressBuffer, INET_ADDRSTRLEN);
 						if (!((ifa->ifa_flags & IFF_LOOPBACK) == IFF_LOOPBACK) &&
 								 ((ifa->ifa_flags & IFF_UP)) == IFF_UP &&
+								 (ifa->ifa_flags & IFF_RUNNING) != 0 &&
 								 (get_mac(ifa->ifa_name) != "00:00:00:00:00:00")){
 							mac = get_mac(ifa->ifa_name);
 							nodo = addressBuffer;

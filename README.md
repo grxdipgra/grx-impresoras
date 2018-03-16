@@ -12,27 +12,32 @@ lpinfo -v realizará el descubrimiento por todos los protocolos disponibles.
 
 ... y realizar la instalación con al URI devuelta de la impresora en concreto.
 
-lpadmin -p HPLaserJetP3015 -v socket://19.86.82.172 -P 
-/usr/share/cups/model/HP/LaserJet_P3005-Postscript.ppd
+lpadmin -p HPLaserJetP3015 -v socket://19.86.82.172 -P  /usr/share/cups/model/HP/LaserJet_P3005-Postscript.ppd
 
 
 
-BASES DE DATOS
+Modelo E-R grx-impresoras
 
-Tablas de la base de datos
+	Los Equipos pueden conectarse a varios Nodos pero en un momento dado sólamente estan conectados a un Nodo.
+	Las Impresoras pueden estar configuradas en distintos Equipos. 
+	Puede existir el mismo tipo de Impresora en diferentes Nodos.
+	Las impresoras que no se ha actualizado en “x” tiempo puede que ya no estén disponibles. 
 
-Impresoras
-	ID impresora (clave)
-	IP del Nodo
-	Nombre de la impresora
-	Conexión 
-	PPD
 
-Nodos 
-	IP del Nodo (clave)
-	Nombre del nodo
-	ID impresora
-	Ultima fecha de disponibilidad
+Entidades y atributos:
+
+	Impresora: InfoImpresora (nombre original), DeviceUri, PPD, StateTime(int)
+	Equipo: Hostname, Mac
+	Nodo: IP, Nombre
+
+Relaciones:
+
+	Disponible: Impresora disponible en un Nodo
+		Impresora – Nodo	n:1	InfoImpresora, DeviceUri, IP, StateTime(int)
+	Conexión: Equipos que se conectan a un nodo
+		Equipo – Nodo	n:1	Hostname,  IP
+	Configurada: Impresora configurada en un Equipo
+		Equipo – Impresora	n:n 	Hostname, DeviceUri, InfoImpresora, 
 
 
 

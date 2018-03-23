@@ -42,8 +42,8 @@ Relaciones:
 
 Modelo de intercambio de datos con xml:
 
-<Impresoras>
-	<Sistema>
+	\<Impresoras\>
+		\<Sistema\>
 		<hostname>"nombreequipo"</hostname>
 		<ip>"direccionip"</ip>
 	</Sistema>

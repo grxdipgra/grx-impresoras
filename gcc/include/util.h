@@ -19,6 +19,7 @@
 #include <sstream>
 #include <string.h> // strerror()
 #include <cstring>
+#include <vector>
 
 using namespace std;
 
@@ -34,4 +35,9 @@ using namespace std;
 bool ExisteFichero(const char* nombre);
 
 /******************************************************************************/
+
+string getFile( string filename );                         // Reads whole file into a string buffer
+vector<string> getData( const string &text, string tag );  // Gets collection of items between given tags
+void stripTags( string &text );                            // Strips any tags
+
 #endif

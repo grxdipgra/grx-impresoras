@@ -9,6 +9,7 @@
 
 #ifndef SET_IMPRESORAS_H
 #define SET_IMPRESORAS_H
+#define ARCHIVO_XML "./impresoras.xml"
 
 /*****************************************************************************/
 #include <iostream>	//cout
@@ -112,6 +113,7 @@ private:
 		void ip_nodo ();
 		void sys_info();
 		string get_mac (string interface);
+		void CrearXml();
 
 /******************************************************************************/
 

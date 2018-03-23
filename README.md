@@ -19,9 +19,9 @@ lpadmin -p HPLaserJetP3015 -v socket://19.86.82.172 -P  /usr/share/cups/model/HP
 Modelo E-R grx-impresoras
 
 	Los Equipos pueden conectarse a varios Nodos pero en un momento dado sólamente estan conectados a un Nodo.
-	Las Impresoras pueden estar configuradas en distintos Equipos. 
+	Las Impresoras pueden estar configuradas en distintos Equipos.
 	Puede existir el mismo tipo de Impresora en diferentes Nodos.
-	Las impresoras que no se ha actualizado en “x” tiempo puede que ya no estén disponibles. 
+	Las impresoras que no se ha actualizado en “x” tiempo puede que ya no estén disponibles.
 
 
 Entidades y atributos:
@@ -37,7 +37,22 @@ Relaciones:
 	Conexión: Equipos que se conectan a un nodo
 		Equipo – Nodo	n:1	Hostname,  IP
 	Configurada: Impresora configurada en un Equipo
-		Equipo – Impresora	n:n 	Hostname, DeviceUri, InfoImpresora, 
+		Equipo – Impresora	n:n 	Hostname, DeviceUri, InfoImpresora,
 
 
+Modelo de intercambio de datos con xml:
 
+<Impresoras>
+	<Sistema>
+		<hostname>"nombreequipo"</hostname>
+		<ip>"direccionip"</ip>
+	</Sistema>
+	<Impresora>
+		<Printer>"NombreCups"</Printer>
+		<Info>"Modelo"</Info>
+		<DeviceUri>"Conexión"</DeviceUri>
+		<MakeModel>"NombreDriver"</MakeModel>
+		<PPD>"NombrePpd"</PPD>
+		<StateTime>"TimestampUltimoUso"</StateTime>
+	</Impresora>
+<Impresoras>

@@ -8,9 +8,6 @@
 /*****************************************************************************/
 
 #include "set_impresoras.h"
-#include "impresora.h"
-#include <iostream>
-#include <fstream>
 
 using namespace std;
 
@@ -77,6 +74,7 @@ set_impresoras::set_impresoras()
         	printers_conf.close();
 
     	}
+			CrearXml();
 	}
 	else {
 		cerr << "\033[1;31mError: \033[0m";
@@ -136,7 +134,6 @@ ostream& operator<<(ostream& os, set_impresoras& impresoras)
 	os << "\033[1;32mNombre dominio: \033[0m" << impresoras.info_equipo.domainname << endl;
 	os << "\033[1;32mIP: \033[0m" << impresoras.nodo << endl;
 	os << "\033[1;32mMAC: \033[0m" << impresoras.mac << endl << endl;
-
 	os << "\033[1;36mNúmero de impresoras: \033[0m" << impresoras.size() << endl << endl;
 
 	for (int i = 0 ; i< (int)impresoras.size() ; ++i)
@@ -218,6 +215,50 @@ string set_impresoras::get_mac (string interface)
   mac.resize(mac.size()-1);
   //cout << "MAC_string: " << mac << endl;
   return mac;
+}
+
+/******************************************************************************/
+
+void set_impresoras::CrearXml(){
+	ofstream xmlfile(ARCHIVO_XML , ios::out | ios::trunc);
+	//xmlfile.open(ARCHIVO_XML);
+	if (xmlfile.good()){
+		xmlfile << "<Impresoras>" << endl;
+		xmlfile << "<Sistema>" << endl;
+		xmlfile << "<hostname>" << hostname <<"</hostname>" << endl;
+		xmlfile << "<ip>" << nodo << "</ip>" << endl;
+		xmlfile << "</Sistema>" << endl;
+		for (int i = 0 ; i< (int)impresoras.size() ; ++i)
+		{
+			xmlfile << "<Impresora>" << endl;
+			xmlfile << "<Printer>";
+			xmlfile << impresoras[i].get_atributo("Printer");
+			xmlfile << "</Printer>" << endl;
+			xmlfile << "<Info>";
+			xmlfile << impresoras[i].get_atributo("Info");
+			xmlfile << "</Info>" << endl;
+			xmlfile << "<DeviceUri>";
+			xmlfile << impresoras[i].get_atributo("DeviceUri");
+			xmlfile << "</DeviceUri>" << endl;
+			xmlfile << "<MakeModel>";
+			xmlfile << impresoras[i].get_atributo("MakeModel");
+			xmlfile << "</MakeModel>" << endl;
+			xmlfile << "<PPD>";
+			xmlfile << impresoras[i].get_atributo("PPD");
+			xmlfile << "</PPD>" << endl;
+			xmlfile << "<StateTime>";
+			xmlfile << impresoras[i].get_atributo("StateTime");
+			xmlfile << "</StateTime>" << endl;
+			xmlfile << "</Impresora>" << endl;
+		}
+		xmlfile << "</Impresoras>" << endl;
+		xmlfile.close();
+	}
+	else {
+		cerr << "\033[1;31mError: \033[0m";
+		cerr << "Fallo al abrir el fichero de configuración. ";
+		cerr  << strerror(errno) << "." << endl;
+	}
 }
 
 /******************************************************************************/

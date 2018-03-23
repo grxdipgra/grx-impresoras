@@ -1,30 +1,38 @@
-/**
-  * @file utils.cpp
-  * @brief Fichero con las definiciones de los metodos de utilidades.
-  * Implementa la interfaz de utils.h
-  * @author Alejandro Castilla Peula OSL Diputacion de Granada
-  * @date Noviembre 2017
-  * License: GNU Public License
-  */
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <cstdlib>
+using namespace std;
 
-/******************************************************************************/
+// Function prototypes
+string getFile( string filename );                         // Reads whole file into a string buffer
+vector<string> getData( const string &text, string tag );  // Gets collection of items between given tags
+void stripTags( string &text );                            // Strips any tags
 
-#include <util.h>
 
-bool ExisteFichero(const char* nombre)
+//======================================================================
+
+
+int main(int argc, char **argv)
 {
-	ifstream fichero;
-	bool problema;
-
-	fichero.open(nombre);
-	problema=fichero.fail();
-	if(!problema) fichero.close();
-	if(!fichero.good())
-  	cerr << "Error: " << strerror(errno) << endl;
-	return ((problema)?false:true);
+   string filename = "impresora.xml";
+   string tag = "Printer";
+// string tag = "object";
+   bool stripOtherTags = true;
+   string text = getFile( filename );
+   vector<string> all = getData( text, tag );
+   for ( string &s : all )
+   {
+      if ( stripOtherTags ) stripTags( s );
+      cout << s << '\n';
+   }
+   return(0);
 }
 
-/******************FUNCIONES PARA EL MANEJO DE XML ****************************/
+
+//======================================================================
+
 
 string getFile( string filename )
 {
@@ -75,11 +83,5 @@ void stripTags( string &text )
    }
 }
 
-/******************* LOG *****************************/
 
-//void log_handle(string log){
-/*http://stackoverflow.com/questions/10952515/c-c-syslog-to-custom-file-not-var-log-syslog-but-var-log-mylog-ubuntu-12*/
-//    openlog(NULL, 0, LOG_USER);
-//    syslog(LOG_INFO, (char*)log.c_str());
-//    setbuf(stdout,0);
-//}
+//======================================================================

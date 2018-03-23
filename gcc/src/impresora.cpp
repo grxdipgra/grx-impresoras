@@ -1,4 +1,4 @@
-/**
+	/**
 	* @file impresora.cpp
 	* @brief Archivo principal del TDA impresora
 	* @author Alejandro Castilla Peula OSL Diputacion de Granada
@@ -95,7 +95,6 @@ ostream& operator<<(ostream& os, impresora& impresora)
   os << impresora.get_atributo("PPD") << endl << "\033[1;32mUsada: \033[0m";
 	os << impresora.get_tiempo() << endl << "\033[1;32mSin uso: \033[0m";
 	os << impresora.get_tiempo_sin_uso() << endl;
-
   return os;
 }
 

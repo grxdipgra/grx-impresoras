@@ -42,17 +42,18 @@ Relaciones:
 
 Modelo de intercambio de datos con xml:
 
-	\<Impresoras\>
-		\<Sistema\>
-		<hostname>"nombreequipo"</hostname>
-		<ip>"direccionip"</ip>
-	</Sistema>
-	<Impresora>
-		<Printer>"NombreCups"</Printer>
-		<Info>"Modelo"</Info>
-		<DeviceUri>"Conexión"</DeviceUri>
-		<MakeModel>"NombreDriver"</MakeModel>
-		<PPD>"NombrePpd"</PPD>
-		<StateTime>"TimestampUltimoUso"</StateTime>
-	</Impresora>
-<Impresoras>
+	<Impresoras>
+		<Sistema>
+			<hostname>"NombreEquipo"</hostname>
+			<ip>"DireccionIp"</ip>
+			<mac>"DireccionMac"
+		</Sistema>
+		<Impresora>
+			<Printer>"NombreCups"</Printer>
+			<Info>"Modelo"</Info>
+			<DeviceUri>"Conexión"</DeviceUri>
+			<MakeModel>"NombreDriver"</MakeModel>
+			<PPD>"NombrePpd"</PPD>
+			<StateTime>"TimestampUltimoUso"</StateTime>
+		</Impresora>
+	<Impresoras>

@@ -227,6 +227,7 @@ void set_impresoras::CrearXml(){
 		xmlfile << "<Sistema>" << endl;
 		xmlfile << "<hostname>" << hostname <<"</hostname>" << endl;
 		xmlfile << "<ip>" << nodo << "</ip>" << endl;
+		xmlfile << "<mac>" << mac << "</mac>" << endl;
 		xmlfile << "</Sistema>" << endl;
 		for (int i = 0 ; i< (int)impresoras.size() ; ++i)
 		{

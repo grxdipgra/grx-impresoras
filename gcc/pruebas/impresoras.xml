@@ -1,0 +1,63 @@
+<Impresoras>
+<Sistema>
+<hostname>esnaia</hostname>
+<ip>10.168.1.69</ip>
+<mac>7C:05:07:23:12:04</mac>
+</Sistema>
+<Impresora>
+<Printer>Canon-iR-ADV-C2220-2230</Printer>
+<Info>Canon-iR-ADV-C2220-2230</Info>
+<DeviceUri>socket://10.2.10.249:9100</DeviceUri>
+<MakeModel>Canon iR-ADV C2220/2230 PCL</MakeModel>
+<PPD>Canon-iR-ADV-C2220-2230.ppd</PPD>
+<StateTime>1522050252</StateTime>
+</Impresora>
+<Impresora>
+<Printer>HP-LaserJet-400-M401dn</Printer>
+<Info>HP LaserJet 400 M401dn</Info>
+<DeviceUri>socket://10.2.10.201</DeviceUri>
+<MakeModel>HP LaserJet 400 M401 Postscript (recommended)</MakeModel>
+<PPD>HP-LaserJet-400-M401dn.ppd</PPD>
+<StateTime>1522925000</StateTime>
+</Impresora>
+<Impresora>
+<Printer>HP-LaserJet-M101-M106</Printer>
+<Info>HP LaserJet M101-M106</Info>
+<DeviceUri>usb://HP/LaserJet%20M101-M106?serial=VNC3B07641</DeviceUri>
+<MakeModel>HP LaserJet M506 Postscript (recommended)</MakeModel>
+<PPD>HP-LaserJet-M101-M106.ppd</PPD>
+<StateTime>1481116187</StateTime>
+</Impresora>
+<Impresora>
+<Printer>Photosmart_2570</Printer>
+<Info>Photosmart_2570</Info>
+<DeviceUri>hp:/net/Photosmart_2570_series?ip=10.168.1.230</DeviceUri>
+<MakeModel>HP Photosmart 2570 Series, hpcups 3.16.3</MakeModel>
+<PPD>Photosmart_2570.ppd</PPD>
+<StateTime>1466182837</StateTime>
+</Impresora>
+<Impresora>
+<Printer>PT-P900-etiquetas</Printer>
+<Info>PT-P900</Info>
+<DeviceUri>usb://Brother/PT-P900W?serial=000H6Z541974</DeviceUri>
+<MakeModel>Brother PT-P900 CUPS</MakeModel>
+<PPD>PT-P900-etiquetas.ppd</PPD>
+<StateTime>1520583067</StateTime>
+</Impresora>
+<Impresora>
+<Printer>QL-1060N</Printer>
+<Info>QL-1060N</Info>
+<DeviceUri>dnssd://Brother%20QL-1060N._pdl-datastream._tcp.local/</DeviceUri>
+<MakeModel>Brother QL-1060N CUPS v1.1</MakeModel>
+<PPD>QL-1060N.ppd</PPD>
+<StateTime>1518170309</StateTime>
+</Impresora>
+<Impresora>
+<Printer>X4300</Printer>
+<Info>Samsung X4300 Series (SEC84251903E20A)</Info>
+<DeviceUri>dnssd://Samsung%20X4300%20Series%20(SEC84251903E20A)._pdl-datastream._tcp.local/</DeviceUri>
+<MakeModel>Samsung X4300 Series PS</MakeModel>
+<PPD>X4300.ppd</PPD>
+<StateTime>1521196777</StateTime>
+</Impresora>
+</Impresoras>

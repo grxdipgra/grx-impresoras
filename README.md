@@ -57,3 +57,11 @@ Modelo de intercambio de datos con xml:
 			<StateTime>"TimestampUltimoUso"</StateTime>
 		</Impresora>
 	<Impresoras>
+
+Logica de negocio con el server.
+
+Cliente -> solicita impresoras del nodo.
+Cliente -> si posee alguna/s nueva/s la/s envia para su registro/actualización.
+Server -> recibe y registra la/s nueva/s impresora/s
+Cliente -> si le falta/n alguna/s la/s solicita para su instalación.
+Cliente -> instala la impresora/s solicitada/s.

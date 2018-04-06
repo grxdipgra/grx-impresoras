@@ -10,7 +10,7 @@ size_t writeCallback(char* buf, size_t size, size_t nmemb, void* up)
     //buf is a pointer to the data that curl has for us
     //size*nmemb is the size of the buffer
 
-    for (int c = 0; c<size*nmemb; c++)
+    for (unsigned int c = 0; c < size*nmemb; c++)
     {
         data.push_back(buf[c]);
     }
@@ -24,7 +24,7 @@ int main()
     curl_global_init(CURL_GLOBAL_ALL); //pretty obvious
     curl = curl_easy_init();
 
-    curl_easy_setopt(curl, CURLOPT_URL, "http://10.7.15.69/curl/impresoras.php");
+    curl_easy_setopt(curl, CURLOPT_URL, "http://10.7.15.69/curl/");
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &writeCallback);
     curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); //tell curl to output its progress
 

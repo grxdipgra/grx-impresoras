@@ -35,6 +35,7 @@ int main(int argc, char **argv)
 {
     set_impresoras impresoras_equipo;
 		cout << impresoras_equipo;
+    UploadXML();
 	return 0;
 }
 

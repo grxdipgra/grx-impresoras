@@ -26,18 +26,18 @@ Modelo E-R grx-impresoras
 
 Entidades y atributos:
 
-	Impresora: InfoImpresora (nombre original), DeviceUri, PPD, StateTime(int)
-	Equipo: Hostname, Mac
-	Nodo: IP, Nombre
+	Impresora: Id_impresora, InfoImpresora (nombre original), DeviceUri, PPD, StateTime(int), ConfigTime(int)
+	Equipo: Id_equipo, Hostname, Mac
+	Nodo: Id_nodo, IP, Nombre
 
 Relaciones:
 
-	Disponible: Impresora disponible en un Nodo
-		Impresora – Nodo	n:1	InfoImpresora, DeviceUri, IP, StateTime(int)
-	Conexión: Equipos que se conectan a un nodo
-		Equipo – Nodo	n:1	Hostname,  IP
+	Impresora_Nodo: Impresora disponible en un Nodo
+		Impresora – Nodo	n:1	Id_impresora, Id_nodo, fecha.
+	Equipo_Nodo: Equipos que se conectan a un nodo
+		Equipo – Nodo	n:1	Id_equipo, Id_nodo , fecha.
 	Configurada: Impresora configurada en un Equipo
-		Equipo – Impresora	n:n 	Hostname, DeviceUri, InfoImpresora,
+		Equipo – Impresora	n:n 	Id_equipo, Id_impresora, fecha.
 
 
 Modelo de intercambio de datos con xml:
@@ -55,6 +55,7 @@ Modelo de intercambio de datos con xml:
 			<MakeModel>"NombreDriver"</MakeModel>
 			<PPD>"NombrePpd"</PPD>
 			<StateTime>"TimestampUltimoUso"</StateTime>
+			<ConfigTime>"TimestampInstalacion"</ConfigTime>
 		</Impresora>
 	<Impresoras>
 

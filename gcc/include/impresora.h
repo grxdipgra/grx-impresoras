@@ -10,9 +10,9 @@
 #ifndef IMPRESORA_H
 #define IMPRESORA_H
 #define ARCHIVO_CONFIGURACION "/etc/cups/printers.conf"
-#define NUMCLAVES 6
+#define NUMCLAVES 7
 #define DIRECTORIO_SALIDA /tmp/grx-impresoras
-#define CLAVES ( Printer,  Info,  DeviceUri,  MakeModel, PPD, StateTime )
+#define CLAVES ( Printer,  Info,  DeviceUri,  MakeModel, PPD, StateTime, ConfigTime )
 
 /*****************************************************************************/
 #include <iostream>	//cout
@@ -37,7 +37,8 @@ using namespace std;
 	Clase IMPRESORAS
 */
 
-const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel", "PPD", "StateTime" };
+const static string claves[] = { "Printer", "Info", "DeviceUri", "MakeModel",
+                                "PPD", "StateTime", "ConfigTime" };
 
 class impresora
 {
@@ -77,6 +78,7 @@ public:
 
 string get_tiempo();
 string get_tiempo_sin_uso();
+string get_instalacion();
 
 /**
 

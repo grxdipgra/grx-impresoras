@@ -11,6 +11,7 @@
 <MakeModel>Canon iR-ADV C2220/2230 PCL</MakeModel>
 <PPD>Canon-iR-ADV-C2220-2230.ppd</PPD>
 <StateTime>1522050252</StateTime>
+<ConfigTime> 1521188783</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>HP-LaserJet-400-M401dn</Printer>
@@ -18,7 +19,8 @@
 <DeviceUri>socket://10.2.10.201</DeviceUri>
 <MakeModel>HP LaserJet 400 M401 Postscript (recommended)</MakeModel>
 <PPD>HP-LaserJet-400-M401dn.ppd</PPD>
-<StateTime>1522925000</StateTime>
+<StateTime>1523344060</StateTime>
+<ConfigTime> 1518171109</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>HP-LaserJet-M101-M106</Printer>
@@ -27,6 +29,16 @@
 <MakeModel>HP LaserJet M506 Postscript (recommended)</MakeModel>
 <PPD>HP-LaserJet-M101-M106.ppd</PPD>
 <StateTime>1481116187</StateTime>
+<ConfigTime> 1481116187</ConfigTime>
+</Impresora>
+<Impresora>
+<Printer>HP_LaserJet_400_M401dn</Printer>
+<Info>HP_LaserJet_400_M401dn</Info>
+<DeviceUri>hp:/net/HP_LaserJet_400_M401dn?ip=10.2.10.201</DeviceUri>
+<MakeModel>HP LaserJet 400 M401 Postscript (recommended)</MakeModel>
+<PPD>HP_LaserJet_400_M401dn.ppd</PPD>
+<StateTime>1523343911</StateTime>
+<ConfigTime> 1477902357</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>Photosmart_2570</Printer>
@@ -34,7 +46,8 @@
 <DeviceUri>hp:/net/Photosmart_2570_series?ip=10.168.1.230</DeviceUri>
 <MakeModel>HP Photosmart 2570 Series, hpcups 3.16.3</MakeModel>
 <PPD>Photosmart_2570.ppd</PPD>
-<StateTime>1466182837</StateTime>
+<StateTime>1523044036</StateTime>
+<ConfigTime> 1523044036</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>PT-P900-etiquetas</Printer>
@@ -43,6 +56,7 @@
 <MakeModel>Brother PT-P900 CUPS</MakeModel>
 <PPD>PT-P900-etiquetas.ppd</PPD>
 <StateTime>1520583067</StateTime>
+<ConfigTime> 1520583067</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>QL-1060N</Printer>
@@ -51,6 +65,7 @@
 <MakeModel>Brother QL-1060N CUPS v1.1</MakeModel>
 <PPD>QL-1060N.ppd</PPD>
 <StateTime>1518170309</StateTime>
+<ConfigTime> 1482402359</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>X4300</Printer>
@@ -59,5 +74,6 @@
 <MakeModel>Samsung X4300 Series PS</MakeModel>
 <PPD>X4300.ppd</PPD>
 <StateTime>1521196777</StateTime>
+<ConfigTime> 1518171685</ConfigTime>
 </Impresora>
 </Impresoras>

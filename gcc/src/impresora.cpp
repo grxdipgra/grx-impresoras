@@ -54,20 +54,31 @@ string impresora::get_tiempo()
 
 /******************************************************************************/
 
+string impresora::get_instalacion()
+{
+	struct tm *timeinfo;
+	const char* timestr = get_atributo("ConfigTime").c_str();
+	time_t timenum = (time_t) strtol(timestr, NULL, 10);
+	timeinfo = localtime (&timenum);
+  return asctime(timeinfo);
+}
+
+/******************************************************************************/
+
 string impresora::get_tiempo_sin_uso()
 {
 	struct tm *timeinfo;
-	tm *p;
+	//tm *p;
 	long int ahora, time_impresora;
 	time (&ahora);
 	time_t diferencia;
 	time_impresora = atoi( get_atributo("StateTime").c_str() );
 	diferencia = ahora - time_impresora;
-	p = gmtime(&diferencia);
-	cout << p->tm_yday << " dias ";
-	cout << p->tm_hour << " horas ";
-	cout << p->tm_min << " minutos ";
-	cout << p->tm_sec << " segundos" << endl;
+	//p = gmtime(&diferencia);
+	//cout << p->tm_yday << " dias ";
+	//cout << p->tm_hour << " horas ";
+	//cout << p->tm_min << " minutos ";
+	//cout << p->tm_sec << " segundos" << endl;
 	timeinfo = localtime (&diferencia);
 	ostringstream strs; //convertir int to string
 	strs << ahora - time_impresora;
@@ -94,7 +105,8 @@ ostream& operator<<(ostream& os, impresora& impresora)
   os << impresora.get_atributo("MakeModel") << endl <<  "\033[1;32mPPD: \033[0m";
   os << impresora.get_atributo("PPD") << endl << "\033[1;32mUsada: \033[0m";
 	os << impresora.get_tiempo() << endl << "\033[1;32mSin uso: \033[0m";
-	os << impresora.get_tiempo_sin_uso() << endl;
+	os << impresora.get_tiempo_sin_uso() << endl << "\033[1;32mInstalacion: \033[0m";
+	os << impresora.get_instalacion() << endl;
   return os;
 }
 

@@ -20,12 +20,13 @@ set_impresoras::set_impresoras()
   string nombre = ARCHIVO_CONFIGURACION;
   string comienzo_impresora = "<Printer";
 	string fin_impresora = "</Printer>";
-	string printer, info, conexion, driver, uso;
+	string printer, info, conexion, driver, uso, instalacion;
 	string comienzo_info = "Info";
 	string comienzo_conexion = "DeviceURI";
 	string comienzo_driver = "MakeModel";
 	string ppd = ".ppd";
 	string ultimo_uso = "StateTime";
+	string time_instalacion = "ConfigTime";
 	string linea;
   sys_info();
   ip_nodo();
@@ -58,6 +59,10 @@ set_impresoras::set_impresoras()
 							uso = linea.substr(10,linea.length()-10);
 							//cout << "Driver: " << driver << endl;
 						}
+						if(linea.find(time_instalacion) != string::npos){
+							instalacion = linea.substr(10,linea.length()-10);
+							//cout << "Driver: " << driver << endl;
+						}
 					}
 				//cout << "******************" << endl;
 				aux.set_atributo("Printer", printer);
@@ -68,6 +73,7 @@ set_impresoras::set_impresoras()
 				aux.set_atributo("DeviceUri",conexion);
 				aux.set_atributo("MakeModel",driver);
 				aux.set_atributo("StateTime",uso);
+				aux.set_atributo("ConfigTime",instalacion);
 				impresoras.push_back(aux);
 				}
         	}
@@ -250,6 +256,9 @@ void set_impresoras::CrearXml(){
 			xmlfile << "<StateTime>";
 			xmlfile << impresoras[i].get_atributo("StateTime");
 			xmlfile << "</StateTime>" << endl;
+			xmlfile << "<ConfigTime>";
+			xmlfile << impresoras[i].get_atributo("ConfigTime");
+			xmlfile << "</ConfigTime>" << endl;
 			xmlfile << "</Impresora>" << endl;
 		}
 		xmlfile << "</Impresoras>" << endl;

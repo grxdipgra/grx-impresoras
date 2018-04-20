@@ -11,6 +11,7 @@
 #ifndef _UTIL_H_
 #define _UTIL_H_
 #define URL_BD_IMPRESORAS "http://10.7.15.69/curl/curl.php"
+#define URL_FILE_IMPRESORAS "http://10.7.15.69/curl/files/impresoras.xml"
 #define ARCHIVO_XML "./impresoras.xml"
 
 /******************************************************************************/
@@ -44,4 +45,6 @@ string getFile( string filename );                         // Reads whole file i
 vector<string> getData( const string &text, string tag );  // Gets collection of items between given tags
 void stripTags( string &text );                            // Strips any tags
 bool UploadXML();                                          //XML impresoras.
+size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream); // Usado en DownloadXML()
+bool DownloadXML();
 #endif

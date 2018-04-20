@@ -147,16 +147,17 @@ bool UploadXML()
 	return exito;
 }
 
+size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream) {
+		size_t written = fwrite(ptr, size, nmemb, stream);
+		return written;
+}
+
 bool DownloadXML()
 {
-	size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream) {
-	    size_t written = fwrite(ptr, size, nmemb, stream);
-	    return written;
-	}
 	    CURL *curl;
 	    FILE *fp;
 	    CURLcode res;
-	    char *url = "http://10.7.15.69/curl/files/impresoras.xml";
+	    char *url = URL_FILE_IMPRESORAS;
 	    char outfilename[FILENAME_MAX] = "./salida.xml";
 	    curl = curl_easy_init();
 	    if (curl) {
@@ -169,9 +170,8 @@ bool DownloadXML()
 	        curl_easy_cleanup(curl);
 	        fclose(fp);
 	    }
-	    return 0;
+	    return true;
 	}
-}
 
 /******************* LOG *****************************/
 

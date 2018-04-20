@@ -1,0 +1,805 @@
+     <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+                   <html xmlns='http://www.w3.org/1999/xhtml' lang='es' xml:lang='es'>
+                             <head>
+                                                <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+                                                <meta name='google-site-verification' content='6bYJyeT8wmanSBz1L9AeuNOcuSaLwjuw_yWgrl3tyHg' />
+                                                <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'><base href="http://www.dipgra.es/">
+                                                <meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+                                                <meta name="Description" content="Página oficial de esta institución con información sobre las distintas áreas y agenda de actividades.">
+                                                <meta name="Keywords" content="Web oficial, Diputación de Granada, concursos, licitaciones, oferta de empleo, ayudas, becas, trámites online, BOP, agenda, oferta cultural.">
+                                                <title>DIPUTACIÓN DE GRANADA</title>
+                                                <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+                                                
+                                                <!--bootstrap 3.3.7-->
+                                                <!--<link href="estilos/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">-->
+                                                <!--<link href="estilos/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" rel="stylesheet">-->
+                                                <!--bootstrap 3.3.7-->
+
+                                                <!-- Latest compiled and minified CSS -->
+                                                <link href="estilos/paginacion-page.inc.css" rel="stylesheet" type="text/css" />
+                                                <!--<link href="estilos/paginacion-seccion.inc.css" rel="stylesheet" type="text/css" />-->
+                                                
+                                                <link href="estilos/estilos.css?ver=0.1" rel="stylesheet" type="text/css" />
+                                                <link href="estilos/agenda.css" rel="stylesheet" type="text/css" />
+                                                <link href="estilos/menu.css" rel="stylesheet" type="text/css" />
+                                                <link href="estilos/menu_lateral.css" rel="stylesheet" type="text/css" />
+                                                <link href="estilos/carouFredSel.css" rel="stylesheet" type="text/css" />
+                                                <link href="estilos/basic.css" rel="stylesheet" type="text/css" />
+                                                <link href="estilos/lightbox.css" rel="stylesheet" type="text/css" />
+                                                <link href="estilos/prettyPhoto.css" rel="stylesheet" type="text/css"/>
+                                                <link href="estilos/jquery.cookiebar.css" rel="stylesheet" type="text/css"/>
+
+                                                <!--bootstrap 3.3.7-->
+                                                <!--<script type="text/javascript" src="estilos/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>-->
+                                                <!--bootstrap 3.3.7-->                                                
+
+                                                <script type="text/javascript" src="js/basic.js"></script>
+                                                <script type="text/javascript" language="javascript" src="js/jquery-1.11.1.min.js"></script>
+                                                <script src="js/jquery.prettyPhoto.js" type="text/javascript"></script>
+                                                <script src="js/visualizarPrettyPhoto.js" type="text/javascript"></script>
+                                                <script type="text/javascript" language="javascript" src="js/lightbox.min.js"></script>
+                                                <script type="text/javascript" language="javascript" src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
+                                                <script type="text/javascript" language="javascript" src="js/intercambia-img.js"></script>
+                                                <script type="text/javascript" language="javascript" src="js/ddaccordion.js"></script>
+                                                <script type="text/javascript" language="javascript" src="js/otrasfunciones.js"></script>
+                                                <script type="text/javascript" language="javascript" src="js/jquery.slides.min.js"></script>
+                                                <script type="text/javascript" src="js/jquery.simplemodal.js"></script>
+                                                <script type="text/javascript" language="javascript" src="js/paginar-page.inc.js"></script>
+
+                                                <script type="text/javascript" language="javascript" src="js/paginar-seccion.inc.js"></script>
+                                                
+                                                <script type="text/javascript" language="javascript" src="js/jquery.cookiebar.js" ></script>
+                                                <script type="text/javascript">
+                                                    $(document).ready(function(){
+                                                        $.cookieBar({
+                                                        });
+                                                    });
+                                                </script>
+
+
+
+                        <script>
+                          (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+                          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                          })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+
+                          ga("create", "UA-52625484-1", "auto");
+                          ga("send", "pageview");
+
+                        </script>
+
+                 
+
+
+
+
+	<script type="text/javascript" charset="utf-8">
+	$(function(){
+		(function($){
+
+			$.fn.accordion = function(custom) {
+				var defaults = {
+					keepOpen: false,
+					startingOpen: false ,
+				}
+				var settings = $.extend({}, defaults, custom);
+				if(settings.startingOpen){
+					$(settings.startingOpen).show();
+				}
+
+				return this.each(function(){
+					var obj = $(this);
+					$("li a", obj).click(function(event){
+							var elem = $(this).next();
+							if(elem.is("ul")){
+								event.preventDefault();
+								if(!settings.keepOpen){
+									obj.find("ul:visible").not(elem).not(elem.parents("ul:visible")).slideUp();
+								}
+								elem.slideToggle();
+							}
+					});
+				});
+			};
+		})(jQuery);
+
+	$("#nuevoMenu").accordion({
+                                keepOpen:false,
+                                });
+	});
+
+	</script>
+
+
+
+         <style>
+            #slides {
+                display:none;
+            }
+         </style>
+
+         <script>
+                $(function(){
+                  $("#slides").slidesjs({
+                    width: 940,
+                    height: 215,
+                     navigation: {
+                            active: false,
+                            effect: "slide"
+                            },
+                     play: {
+                            active: false,
+                            effect: "fade",
+                            interval: 4000,
+                            auto: true,
+                            swap: true,
+                            pauseOnHover: true,
+                            restartDelay: 500
+                         },
+                     pagination: {
+                        active: true,
+                        effect: "slide"
+                     },
+                      effect: {
+                            fade: {
+                              speed: 600,
+                                // [number] Speed in milliseconds of the fade animation.
+                              crossfade: true
+                                // [boolean] Cross-fade the transition.
+                            },
+                            slide:{
+                                speed:600
+                                }
+
+                          }
+                });
+            });
+         </script>
+
+
+ <script>
+                $(function(){
+                  $("#slides2").slidesjs({
+                    width: 400,
+                    height: 480,
+                     navigation: {
+                            active: false,
+                            effect: "slide"
+                            },
+                        play: {
+                            active: false,
+                            effect: "fade",
+                            interval: 3000,
+                            auto: true,
+                            swap: true,
+                            pauseOnHover: true,
+                            restartDelay: 500
+                         },
+                         pagination: {
+                            active: true,
+                            effect: "slide"
+                        },
+                          effect: {
+                                fade: {
+                                  speed: 600,
+                                    // [number] Speed in milliseconds of the fade animation.
+                                  crossfade: true
+                                    // [boolean] Cross-fade the transition.
+                                },
+                                slide:{
+                                    speed:600
+                                    }
+
+                              }
+                });
+            });
+         </script>
+
+
+<script type="text/javascript">
+function selecciona_value(objInput) {
+
+    var valor_input = objInput.value;
+    var longitud = valor_input.length;
+
+    if (objInput.setSelectionRange) {
+        objInput.focus();
+        objInput.setSelectionRange (0, longitud);
+    }
+    else if (objInput.createTextRange) {
+        var range = objInput.createTextRange() ;
+        range.collapse(true);
+        range.moveEnd("character", longitud);
+        range.moveStart("character", 0);
+        range.select();
+    }
+}
+
+</script>
+                    <!-- fire plugin onDocumentReady -->
+                    <script type="text/javascript" language="javascript">
+                            $(function() {
+
+                                    //	Scrolled by user interaction
+                                    $("#foo").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev",
+                                            next: "#next",
+                                            pagination: "#pager",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+
+                                    //	Scrolled by user interaction
+                                    $("#foo2").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev2",
+                                            next: "#next2",
+                                            pagination: "#pager2",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+
+                                    //	Galeria de Imágenes : Scrolled by user interaction
+                                    $("#foo3").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev3",
+                                            next: "#next3",
+                                            pagination: "#pager3",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+
+                                    //	Scrolled by user interaction
+                                    $("#foo4").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev4",
+                                            next: "#next4",
+                                            pagination: "#pager4",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+                                    //	Scrolled by user interaction
+                                    $("#foo5").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev5",
+                                            next: "#next5",
+                                            pagination: "#pager5",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+                                      //	Scrolled by user interaction
+                                    $("#foo6").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev6",
+                                            next: "#next6",
+                                            pagination: "#pager6",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+
+                                   //	Scrolled by user interaction
+                                    $("#foo7").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev7",
+                                            next: "#next7",
+                                            pagination: "#pager7",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+
+                                   //	Scrolled by user interaction
+                                    $("#foo8").carouFredSel({
+                                            auto: false,
+                                            prev: "#prev8",
+                                            next: "#next8",
+                                            pagination: "#pager8",
+                                            mousewheel: true,
+                                            swipe: {
+                                                    onMouse: true,
+                                                    onTouch: true
+                                            }
+                                    });
+
+                            });
+                    </script>
+
+
+
+
+<script language="Javascript">
+function imagenPopUp(url,titulo) {
+// Abre una ventana pop up con el contenido de la imagen pasada como parametro
+var posicion_x;
+var posicion_y;
+posicion_x=(screen.width/2)-(800/2);
+posicion_y=(screen.height/2)-(600/2);
+window.open(url,"titulo","width=800,height=600,menubar=0,toolbar=0,directories=0,Location=no,titlebar=no,scrollbars=no,resizable=no,left="+posicion_x+",top="+posicion_y+"");
+
+
+}
+// Precarga de imágenes
+if (document.images) {
+            var mapaPLID= new Image();
+            mapaPLID.src = "imagenes/zonas_plid.jpg";
+            var zona33= new Image();
+            zona33.src = "imagenes/Zona_33_sobre.jpg";
+            var zona34= new Image();
+            zona34.src = "imagenes/Zona_34_sobre.jpg";
+            var zona35= new Image();
+            zona35.src = "imagenes/Zona_35_sobre.jpg";
+            var zona36= new Image();
+            zona36.src = "imagenes/Zona_36_sobre.jpg";
+            var zona37= new Image();
+            zona37.src = "imagenes/Zona_37_sobre.jpg";
+            var zona38= new Image();
+            zona38.src = "imagenes/Zona_38_sobre.jpg";
+
+
+            var collageCatalogoCarreteras= new Image();
+            collageCatalogoCarreteras.src = "imagenes/Collage_catalogo_carreteras.jpg";
+            var zona1= new Image();
+            zona1.src = "imagenes/zona1.jpg";
+            var zona2= new Image();
+            zona2.src = "imagenes/zona2.jpg";
+            var zona3= new Image();
+            zona3.src = "imagenes/zona3.jpg";
+            var zona4= new Image();
+            zona4.src = "imagenes/zona4.jpg";
+
+            var mapaInstalaciones= new Image();
+            mapaInstalaciones.src = "imagenes/mapa-inst.jpg";
+            var cespednatural1= new Image();
+            cespednatural1.src = "imagenes/mapa-inst-cesped-natural-1.jpg";
+            var cespednatural2= new Image();
+            cespednatural2.src = "imagenes/mapa-inst-cesped-natural-2.jpg";
+            var cabanas= new Image();
+            cabanas.src = "imagenes/mapa-inst-cabanas.jpg";
+            var cespedartificial= new Image();
+            cespedartificial.src = "imagenes/mapa-inst-cesped-artificial.jpg";
+            var educacionvial= new Image();
+            educacionvial.src = "imagenes/mapa-inst-educacion-vial.jpg";
+            var moqueta= new Image();
+            moqueta.src = "imagenes/mapa-inst-moqueta.jpg";
+            var padel= new Image();
+            padel.src = "imagenes/mapa-inst-padel.jpg";
+            var parqueinfantil= new Image();
+            parqueinfantil.src = "imagenes/mapa-inst-parque-infantil.jpg";
+            var piscina= new Image();
+            piscina.src = "imagenes/mapa-inst-piscina.jpg";
+            var polideportivas= new Image();
+            polideportivas.src = "imagenes/mapa-inst-polideportivas.jpg";
+            var restaurante= new Image();
+            restaurante.src = "imagenes/mapa-inst-restaurante.jpg";
+            var tenis= new Image();
+            tenis.src = "imagenes/mapa-inst-tenis.jpg";
+            var voley= new Image();
+            voley.src = "imagenes/mapa-inst-voley.jpg";
+            var picnic= new Image();
+            picnic.src = "imagenes/mapa-inst-picnic.jpg";
+            var pabellon= new Image();
+            pabellon.src = "imagenes/mapa-inst-pabellon.jpg";
+
+            var mapa= new Image();
+            mapa.src = "imagenes/Mapa.jpg";
+            var poniente= new Image();
+            poniente.src = "imagenes/Mapa-Poniente.jpg";
+            var altiplano= new Image();
+            altiplano.src = "imagenes/Mapa-Altiplano.jpg";
+            var montes= new Image();
+            montes.src = "imagenes/Mapa-Montes.jpg";
+            var sur= new Image();
+            sur.src = "imagenes/Mapa-Sur.jpg";
+            var metrosur= new Image();
+            metrosur.src = "imagenes/Mapa-MetroSur.jpg";
+            var metronorte= new Image();
+            metronorte.src = "imagenes/Mapa-MetroNorte.jpg";
+            var marquesado= new Image();
+            marquesado.src = "imagenes/Mapa-Marquesado.jpg";
+            var alpujarra= new Image();
+            alpujarra.src = "imagenes/Mapa-Alpujarra.jpg";
+}
+
+// Carga de imagen cuando el ratón pasa por encima
+function muestra() {
+  if (document.images) {
+      document.images["imagen_mapa"].src = mapa.src;
+  }
+}
+function muestra2() {
+  if (document.images) {
+       document.images["imagen_mapa_instalaciones"].src = mapaInstalaciones.src;
+  }
+}
+function muestra3() {
+  if (document.images) {
+       document.images["imagen_mapa_catalogo_carreteras"].src = collageCatalogoCarreteras.src;
+  }
+}
+function muestra4() {
+  if (document.images) {
+       document.images["imagen_mapa_plid"].src = mapaPLID.src;
+  }
+}
+// Carga de imagen cuando el ratón abandona el área de la imagen
+function entra(boton) {
+  if (document.images) {
+  	switch (boton)
+	{
+                                    case "zona1":
+		  document.images["imagen_mapa_catalogo_carreteras"].src = zona1.src;
+		  break;
+                                    case "zona2":
+		  document.images["imagen_mapa_catalogo_carreteras"].src = zona2.src;
+		  break;
+                                    case "zona3":
+		  document.images["imagen_mapa_catalogo_carreteras"].src = zona3.src;
+		  break;
+                                    case "zona4":
+		  document.images["imagen_mapa_catalogo_carreteras"].src = zona4.src;
+		  break;
+
+		case "Poniente":
+		  document.images["imagen_mapa"].src = poniente.src;
+		  break;
+ 		case "Altiplano":
+		  document.images["imagen_mapa"].src = altiplano.src;
+		  break;
+ 		case "Montes":
+		  document.images["imagen_mapa"].src = montes.src;
+		  break;
+ 		case "Sur":
+		  document.images["imagen_mapa"].src = sur.src;
+		  break;
+		case "Metrosur":
+		  document.images["imagen_mapa"].src = metrosur.src;
+		  break;
+		case "Metronorte":
+		  document.images["imagen_mapa"].src = metronorte.src;
+		  break;
+		case "Marquesado":
+		  document.images["imagen_mapa"].src = marquesado.src;
+		  break;
+		case "Alpujarra":
+		  document.images["imagen_mapa"].src = alpujarra.src;
+		  break;
+
+                                    case "cesped-natural1":
+                                               document.images["imagen_mapa_instalaciones"].src = cespednatural1.src;
+                                               break;
+                                     case "cesped-natural2":
+                                               document.images["imagen_mapa_instalaciones"].src = cespednatural2.src;
+                                               break;
+                                     case "cesped-artificial":
+                                               document.images["imagen_mapa_instalaciones"].src = cespedartificial.src;
+                                               break;
+                                     case "cabañas":
+                                               document.images["imagen_mapa_instalaciones"].src = cabanas.src;
+                                               break;
+                                     case "educacion-vial":
+                                               document.images["imagen_mapa_instalaciones"].src = educacionvial.src;
+                                               break;
+                                     case "moqueta":
+                                               document.images["imagen_mapa_instalaciones"].src = moqueta.src;
+                                               break;
+                                     case "padel":
+                                               document.images["imagen_mapa_instalaciones"].src = padel.src;
+                                               break;
+                                     case "parque-infantil":
+                                               document.images["imagen_mapa_instalaciones"].src = parqueinfantil.src;
+                                               break;
+                                     case "piscina":
+                                               document.images["imagen_mapa_instalaciones"].src = piscina.src;
+                                               break;
+                                     case "polideportivas":
+                                               document.images["imagen_mapa_instalaciones"].src = polideportivas.src;
+                                               break;
+                                     case "restaurante":
+                                               document.images["imagen_mapa_instalaciones"].src = restaurante.src;
+                                               break;
+                                     case "tenis":
+                                               document.images["imagen_mapa_instalaciones"].src = tenis.src;
+                                               break;
+                                     case "voley":
+                                               document.images["imagen_mapa_instalaciones"].src = voley.src;
+                                               break;
+                                     case "picnic":
+                                               document.images["imagen_mapa_instalaciones"].src = picnic.src;
+                                               break;
+                                     case "pabellon":
+                                               document.images["imagen_mapa_instalaciones"].src = pabellon.src;
+                                               break;
+
+                                     case "zona33":
+                                                document.images["imagen_mapa_plid"].src = zona33.src;
+                                                break;
+                                     case "zona34":
+                                                document.images["imagen_mapa_plid"].src = zona34.src;
+                                                break;
+                                     case "zona35":
+                                                document.images["imagen_mapa_plid"].src = zona35.src;
+                                                break;
+                                     case "zona36":
+                                                document.images["imagen_mapa_plid"].src = zona36.src;
+                                                break;
+                                     case "zona37":
+                                                document.images["imagen_mapa_plid"].src = zona37.src;
+                                                break;
+                                     case "zona38":
+                                                document.images["imagen_mapa_plid"].src = zona38.src;
+                                                break;
+
+	default:
+                            {
+                               document.images["imagen_mapa"].src = mapa.src;
+                               document.images["imagen_mapa_instalaciones"].src = mapaInstalaciones.src;
+                               document.images["imagen_mapa_catalogo_carreteras"].src = collageCatalogoCarreteras.src;
+                               document.images["imagen_mapa_plid"].src = mapaPLID.src;}
+	}
+        }
+}
+ </script>
+
+
+<script type="text/javascript" src="//www--dipgra--es.insuit.net/i4tservice/jscm_loader.js"></script>
+
+
+                    
+<script type="text/javascript" charset="UTF-8">
+/* <![CDATA[ */
+try { if (undefined == xajax.config) xajax.config = {}; } catch (e) { xajax = {}; xajax.config = {}; };
+xajax.config.requestURI = "http://www.dipgra.es/contenidos/orden-del-dia/convocatoria_pleno_30-01-2014.pdf?urlamigable=orden-del-dia/convocatoria_pleno_30-01-2014.pdf";
+xajax.config.statusMessages = false;
+xajax.config.waitCursor = true;
+xajax.config.version = "xajax 0.5";
+xajax.config.defaultMode = "asynchronous";
+xajax.config.defaultMethod = "POST";
+xajax.config.JavaScriptURI = "carpetas/xajax/";
+/* ]]> */
+</script>
+<script type="text/javascript" src="carpetas/xajax/xajax_js/xajax_core.js" charset="UTF-8"></script>
+<script type="text/javascript" charset="UTF-8">
+/* <![CDATA[ */
+window.setTimeout(
+ function() {
+  var scriptExists = false;
+  try { if (xajax.isLoaded) scriptExists = true; }
+  catch (e) {}
+  if (!scriptExists) {
+   alert("Error: the xajax Javascript component could not be included. Perhaps the URL is incorrect?\nURL: carpetas/xajax/xajax_js/xajax_core.js");
+  }
+ }, 2000);
+/* ]]> */
+</script>
+
+<script type='text/javascript' charset='UTF-8'>
+/* <![CDATA[ */
+xajax_muestra_agenda = function() { return xajax.request( { xjxfun: 'muestra_agenda' }, { parameters: arguments } ); };
+xajax_muestra_agenda_fecha = function() { return xajax.request( { xjxfun: 'muestra_agenda_fecha' }, { parameters: arguments } ); };
+xajax_muestra_agenda_fechaJL = function() { return xajax.request( { xjxfun: 'muestra_agenda_fechaJL' }, { parameters: arguments } ); };
+xajax_pinta_medios = function() { return xajax.request( { xjxfun: 'pinta_medios' }, { parameters: arguments } ); };
+xajax_pinta_detalle_medio = function() { return xajax.request( { xjxfun: 'pinta_detalle_medio' }, { parameters: arguments } ); };
+xajax_muestra_agenda_dossier = function() { return xajax.request( { xjxfun: 'muestra_agenda_dossier' }, { parameters: arguments } ); };
+xajax_muestra_dossier_fecha = function() { return xajax.request( { xjxfun: 'muestra_dossier_fecha' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_busqueda = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_busqueda' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_otros_tipos_contenidos = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_otros_tipos_contenidos' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_formacion = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_formacion' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_ayudas = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_ayudas' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_bolsas = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_bolsas' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_seleccion_personal = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_seleccion_personal' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_empleo_publico = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_empleo_publico' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_premios = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_premios' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_actualizacionSoftware = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_actualizacionSoftware' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_impresos = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_impresos' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_anuncios = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_anuncios' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_programas = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_programas' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_catalogo = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_catalogo' }, { parameters: arguments } ); };
+xajax_muestra_calendario_noticia = function() { return xajax.request( { xjxfun: 'muestra_calendario_noticia' }, { parameters: arguments } ); };
+xajax_muestra_calendario_agenda = function() { return xajax.request( { xjxfun: 'muestra_calendario_agenda' }, { parameters: arguments } ); };
+xajax_muestra_noticia_fecha = function() { return xajax.request( { xjxfun: 'muestra_noticia_fecha' }, { parameters: arguments } ); };
+xajax_muestra_noticia_ampliada = function() { return xajax.request( { xjxfun: 'muestra_noticia_ampliada' }, { parameters: arguments } ); };
+xajax_cambia_filtro_noticia = function() { return xajax.request( { xjxfun: 'cambia_filtro_noticia' }, { parameters: arguments } ); };
+xajax_amplia_noticia = function() { return xajax.request( { xjxfun: 'amplia_noticia' }, { parameters: arguments } ); };
+xajax_amplia_agendaJL = function() { return xajax.request( { xjxfun: 'amplia_agendaJL' }, { parameters: arguments } ); };
+xajax_amplia_informacion_enlaces = function() { return xajax.request( { xjxfun: 'amplia_informacion_enlaces' }, { parameters: arguments } ); };
+xajax_muestra_agenda_pleno = function() { return xajax.request( { xjxfun: 'muestra_agenda_pleno' }, { parameters: arguments } ); };
+xajax_muestra_pleno_fecha = function() { return xajax.request( { xjxfun: 'muestra_pleno_fecha' }, { parameters: arguments } ); };
+xajax_muestra_agenda_junta = function() { return xajax.request( { xjxfun: 'muestra_agenda_junta' }, { parameters: arguments } ); };
+xajax_muestra_junta_fecha = function() { return xajax.request( { xjxfun: 'muestra_junta_fecha' }, { parameters: arguments } ); };
+xajax_pinta_declaracion_bienes = function() { return xajax.request( { xjxfun: 'pinta_declaracion_bienes' }, { parameters: arguments } ); };
+xajax_pinta_competiciones_zona = function() { return xajax.request( { xjxfun: 'pinta_competiciones_zona' }, { parameters: arguments } ); };
+xajax_muestra_calendario_agendaCompeticion = function() { return xajax.request( { xjxfun: 'muestra_calendario_agendaCompeticion' }, { parameters: arguments } ); };
+xajax_muestra_agenda_fechaCompeticion = function() { return xajax.request( { xjxfun: 'muestra_agenda_fechaCompeticion' }, { parameters: arguments } ); };
+xajax_amplia_agendaCompeticion = function() { return xajax.request( { xjxfun: 'amplia_agendaCompeticion' }, { parameters: arguments } ); };
+xajax_pinta_datos_zona = function() { return xajax.request( { xjxfun: 'pinta_datos_zona' }, { parameters: arguments } ); };
+xajax_pinta_competiciones_zona_escolares = function() { return xajax.request( { xjxfun: 'pinta_competiciones_zona_escolares' }, { parameters: arguments } ); };
+xajax_muestra_agenda_fecha_fran = function() { return xajax.request( { xjxfun: 'muestra_agenda_fecha_fran' }, { parameters: arguments } ); };
+xajax_muestra_agenda_fran = function() { return xajax.request( { xjxfun: 'muestra_agenda_fran' }, { parameters: arguments } ); };
+xajax_muestra_agenda_actas = function() { return xajax.request( { xjxfun: 'muestra_agenda_actas' }, { parameters: arguments } ); };
+xajax_muestra_acta_fecha = function() { return xajax.request( { xjxfun: 'muestra_acta_fecha' }, { parameters: arguments } ); };
+xajax_pinta_zona_plid = function() { return xajax.request( { xjxfun: 'pinta_zona_plid' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_vivero = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_vivero' }, { parameters: arguments } ); };
+xajax_amplia_informacion_plantas = function() { return xajax.request( { xjxfun: 'amplia_informacion_plantas' }, { parameters: arguments } ); };
+xajax_cierra_informacion_plantas = function() { return xajax.request( { xjxfun: 'cierra_informacion_plantas' }, { parameters: arguments } ); };
+xajax_pinta_datos_zona_cultura = function() { return xajax.request( { xjxfun: 'pinta_datos_zona_cultura' }, { parameters: arguments } ); };
+xajax_pinta_datos_Municipio_cultura = function() { return xajax.request( { xjxfun: 'pinta_datos_Municipio_cultura' }, { parameters: arguments } ); };
+xajax_otras_Noticias_Resumen = function() { return xajax.request( { xjxfun: 'otras_Noticias_Resumen' }, { parameters: arguments } ); };
+xajax_pinta_datos_zona_fines_culturales = function() { return xajax.request( { xjxfun: 'pinta_datos_zona_fines_culturales' }, { parameters: arguments } ); };
+xajax_pinta_datos_Municipio_fines_culturales = function() { return xajax.request( { xjxfun: 'pinta_datos_Municipio_fines_culturales' }, { parameters: arguments } ); };
+xajax_pinta_agenda_deportiva_provincial = function() { return xajax.request( { xjxfun: 'pinta_agenda_deportiva_provincial' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_consultas_publicas_previas = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_consultas_publicas_previas' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_audiencias_informacion_publica = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_audiencias_informacion_publica' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_participacion_publica = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_participacion_publica' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_participacion_publica_cerrados = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_participacion_publica_cerrados' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_audiencias_informacion_tras_pleno = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_audiencias_informacion_tras_pleno' }, { parameters: arguments } ); };
+xajax_muestra_lista_tramites_tras_pleno_cerrados = function() { return xajax.request( { xjxfun: 'muestra_lista_tramites_tras_pleno_cerrados' }, { parameters: arguments } ); };
+xajax_muestra_lista_convocatorias_portal_empleado = function() { return xajax.request( { xjxfun: 'muestra_lista_convocatorias_portal_empleado' }, { parameters: arguments } ); };
+xajax_muestra_lista_resultados_oferta_publica = function() { return xajax.request( { xjxfun: 'muestra_lista_resultados_oferta_publica' }, { parameters: arguments } ); };
+/* ]]> */
+</script>
+<div id="container"> </head>
+           <body onload='initLightbox();MM_preloadImages('imagenes/youtube_hover.png','imagenes/twitter_hover.png','imagenes/rss_hover.png','imagenes/facebook_hover.png',imagenes/cabecera/boton_presidente_hover.jpg','imagenes/cabecera/boton_bophover.gif','imagenes/cabecera/boton_sedehover.gif','imagenes/cabecera/boton_intranet_hover1.gif','imagenes/cabecera/boton_directorio_hover1.gif','imagenes/cabecera/boton_mapaweb_hover1.gif','cabecera/boton_empleo_hover.gif','cabecera/boton_ayudas_hover.gif','cabecera/boton_formacion_hover.gif','cabecera/boton_enlacesinteres_hover.gif')' >    <div id="fb-root"></div>    <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);  }(document, 'script', 'facebook-jssdk'));
+                    </script>
+               <div id='caja_principal'>
+                    <div id='container'>	<div id="cabecera">
+                                    <div id="logo_cabecera" ><h1><a href="http://www.dipgra.es/" title="Diputaci&oacute;n de Granada"><img class="img-sin-opacidad logoCabeceraNuevo" src="imagenes/Logo1.png" alt="Logotipo Diputaci&oacute;n  de Granada" /></a></h1></div>
+
+                                    <div class="buscador">
+
+                                        <!--<div class="enlace_cabecera"> <a href="directorio/" title="Directorio." target="_blank">Directorio</a></div>-->
+                                        <!--<div class="enlace_cabecera"> <a href="intranet/" title="Intranet." target="_blank">Intranet</a></div>-->
+                                        
+                                        <div class="enlace_cabecera"><a target="_blank" href="sede-electronica/""><span class="fa fa-at fa-lg"></span>&nbsp;Sede Electrónica</a></div>
+                                        <div class="enlace_cabecera"> <a href="dipgra-transparencia/" accesskey="b" title="Transparencia" target="_blank">Transparencia</a></div>
+                                        <div class="enlace_cabecera"> <a href="bop/" accesskey="b" title="Bolet&iacute;n oficial de la provincia" target="_blank">B.O.P.</a></div>
+                                        <div class="campo-buscador">
+                                                <form action="busqueda/" method="post" id="formularioBusqueda" name="formularioBusqueda">
+                                                              <span class="fa fa-search fa-2x">
+                                                              <input id="busqueda" name="busqueda" title="Introduzca los t&eacute;rminos de b&uacute;squeda" onfocus="selecciona_value(this)" type="text" size="15" /></span>
+
+                                                </form>
+                                        </div>
+                                        <div class="redes_sociales_cabecera">
+                                            <a class="enlace-red-social-cabecera" target="_blank" href="https://www.facebook.com/dipgra/"><span class="fa fa-facebook fa-lg"></span></a>
+                                            <a class="enlace-red-social-cabecera" target="_blank" href="https://www.dipgra.es/#"><span class="fa fa-rss fa-lg"></span></a>
+                                            <a class="enlace-red-social-cabecera" target="_blank" href="https://twitter.com/dipgra"><span class="fa fa-twitter fa-lg"></span></a>
+                                            <a class="enlace-red-social-cabecera" target="_blank" href="https://www.youtube.com/user/DiputacionGranada"><span class="fa fa-youtube fa-lg"></span></a>
+                                        </div>                                        
+                                    </div>
+             </div><div id='contenedor_menu'>
+<ul id='menu'>
+<li> <a href='#' style='cursor: default'>Diputación</a>
+<div class='caja_estrecha'>
+<div class='col_estrecha'>
+<ul>
+<li><a href='contenidos/discursos/' class='tab'>Discursos y Artículos</a></li>
+<li><a href='seccion/presidencia/' class='tab'>Presidencia</a></li>
+<li><a href='contenidos/secretariageneral/' class='tab'>Secretaría General</a></li>
+<li><a href='contenidos/corporacion/' class='tab'>Corporación</a></li>
+<li><a href='partidospoliticos/gruposPoliticos/' class='tab'>Grupos Políticos</a></li>
+<li><a href='sindicatos/seccionesSindicales/' class='tab'>Secciones Sindicales</a></li>
+<li><a href='contenidos/historia/' class='tab'>Historia de la Institución</a></li>
+<li><a href='contenidos/sede/' class='tab'>La Sede</a></li>
+<li><a href='contenidos/otras-sedes/' class='tab'>Otras Sedes</a></li>
+</ul>
+</div>
+</div>
+</li>
+<li> <a href='#' style='cursor: default'>Delegaciones</a>
+<div class='caja_ancha'>
+<div class='col_pocoTexto'>
+<h3><a href='contenidos/url_Fomento/'   ></a></h3>
+<ul><li><a href='seccion/AsistenciaMunicipios/' class='tab'   > Asistencia a Municipios y Medio Ambiente</a></li>
+<li><a href='seccion/obra_publica_y_vivienda/' class='tab'   > Obras Públicas y Vivienda</a></li>
+<li><a href='seccion/RecursosHumanos/' class='tab'   > Recursos Humanos, Economía y Patrimonio</a></li>
+<li><a href='seccion/presidencia_contratacion/' class='tab'   > Presidencia y Contratación</a></li>
+</ul></div><div class='col_estrecha'>
+<h3><a href='seccion/familia/'   ></a></h3>
+<ul><li><a href='seccion/igualdadJuventud/' class='tab'   > Igualdad y Juventud</a></li>
+<li><a href='seccion/bienestar/' class='tab'   > Bienestar Social</a></li>
+<li><a href='seccion/administracion_electronica/' class='tab'   > Administración Electrónica</a></li>
+<li><a href='seccion-alternativa/deportes/' class='tab'   > Deportes</a></li>
+<li><a href='seccion/EmpleoDesarrollo/' class='tab'   > Empleo y Desarrollo Sostenible</a></li>
+</ul></div><div class='col_muchoTexto'>
+<h3><a href='seccion/areaPresidencia/'   ></a></h3>
+<ul><li><a href='seccion/cultura/' class='tab'   > Cultura y Memoria Histórica y Democrática</a></li>
+<li><a href='seccion/turismo/' class='tab'   > Turismo</a></li>
+<li><a href='subseccion/relacionesInstitucionales/' class='tab'   > Relaciones Institucionales</a></li>
+<li><a href='seccion/organismos-autonomos-empresas/' class='tab'   > Organismos Autónomos y Empresas</a></li>
+</ul></div></div>
+</li>
+<li> <a href='#' style='cursor: default'>Servicios</a>
+<div class='caja_estrecha'>
+<div class='col_estrecha'>
+<ul>
+<li><a href='seccion/gabineteComunicacion/' class='tab'>Gabinete Comunicación</a></li>
+<li><a href='bop/' class='tab'>B.O.P.</a></li>
+<li><a href='contenidos/perfilcontratante/' class='tab'>Perfil de Contratante</a></li>
+<li><a href='seccion/consumo/' class='tab'>Junta Arbitral de Consumo</a></li>
+<li><a href='seccion/empleo/' class='tab'>Empleo</a></li>
+<li><a href='seccion/formacion/' class='tab'>Formación</a></li>
+<li><a href='seccion/ayudas/' class='tab'>Ayudas</a></li>
+<li><a href='seccion/impresos/' class='tab'>Documentos de interés</a></li>
+<li><a href='seccion/anuncios/' class='tab'>Anuncios</a></li>
+<li><a href='dipgra-transparencia/' class='tab'>Diputación Transparente</a></li>
+<li><a href='seccion/drogodependencias/' class='tab'>Servicio Provincial Drogodependencias</a></li>
+</ul>
+</div>
+</div>
+</li>
+<li> <a href='#' style='cursor: default'>Municipios</a>
+<div class='caja_estrecha'>
+<div class='col_estrecha'>
+<ul>
+<li><a href='contenidos/convenios/' class='tab'>Convenios Municipales</a></li>
+<li><a href='contenidos/gestionMunicipal/' class='tab'>Gestión / Utilidades / Actualización</a></li>
+<li><a href='ayuntamientos/ayuntamientos/' class='tab'>Directorio Ayuntamientos</a></li>
+<li><a href='seccion/AsistenciaMunicipios/' class='tab'>Asistencia Municipios</a></li>
+<li><a href='http://siggra.dipgra.es/' class='tab'>Sistema de Información Geográfica</a></li>
+</ul>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div id="main"><div id='tablon'>
+                    <div>
+                        <a class='botonTablon' href='contenidos/discursos/'><span class='fa fa-commenting fa-lg'></span>&nbsp;El Presidente</a>
+                        <a class='botonTablon' href='agendaCulturalGrProvincia'><span class='fa fa-ticket fa-lg'></span>&nbsp;Agenda Cultural</a>
+                        <a class='botonTablon' href='contenidos/AsistenciaJuridicayEconomica/'><span class='fa fa-university fa-lg'></span>&nbsp;Asistencia a Municipios</a>
+                        <a class='botonTablon' href='seccion/organismos-autonomos-empresas/'><span class='fa fa-link fa-lg'></span>&nbsp; Organismos Aut&oacute;nomos</a>
+                        <a class='botonTablon' href='empleo/'><span class='fa fa-briefcase fa-lg'></span>&nbsp; Empleo</a>
+                        <a class='botonTablon' href='ayudas/'><span class='fa fa-question-circle fa-lg'></span>&nbsp; Ayudas</a>
+                        <a class='botonTablon' href='formacion/'><span class='fa fa-graduation-cap fa-lg'></span>&nbsp; Formación</a>
+                        <!--<a class='botonTablon' href='transparencia/'><span class='fa fa-lightbulb-o fa-lg'></span>&nbsp; Transparencia Diputaci&oacute;n</a>-->
+                        <a class='botonTablon' href='transparencia-municipal/'><span class='fa fa-lightbulb-o fa-lg'></span>&nbsp; Transparencia Municipal</a>
+                        <a class='botonTablon' href='contenidos/participacion-publica-normativa-diputacion/'><span class='fa fa-users fa-lg'></span>&nbsp; Participaci&oacute;n P&uacute;blica-Normativa</a>
+                        <a class='botonTablon' href='contratacion/'><span class='fa fa-handshake-o fa-lg'></span>&nbsp; Contrataci&oacute;n P&uacute;blica</a>
+                        <a class='botonTablon' href='intranet/'><span class='fa fa-code-fork fa-lg'></span>&nbsp; Intranet</a>
+                        <a class='botonTablon' href='directorio/'><span class='fa fa-phone fa-lg'></span>&nbsp; Directorio Telef&oacute;nico</a>
+                        <!--<a class='botonTablon' href='enlaces/'><span class='fa fa-link fa-lg'></span>&nbsp; Enlaces de Inter&eacute;s</a>-->
+                        <a class='botonTablon' href='multimedia/' target='_blank'><span class='fa fa-video-camera fa-lg'></span>&nbsp; Multimedia</a>
+                        <!--<div class='videoPrincipal'><iframe src='https://www.youtube.com/embed/98rcudpwffw?ecver=2' width='640' height='360' frameborder='0' style='position:absolute;width:100%;height:100%;left:0' allowfullscreen></iframe></div>-->
+
+                    </div>
+
+                  </div><div id="contenido">No se ha localizado información sobre la sección.</div><div class="espacio2">&nbsp;</div><div id='pie'>
+<div class='contenedorPie'>Diputación de Granada | C/Periodista Barrios Talavera,1  - 18014 (Granada) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class='vinculo_pie' href='mapaweb/' accesskey='w'>Mapa web</a> | <a class='vinculo_pie'  href='sugerencias/' accesskey='s'>Sugerencias</a> | <a class='vinculo_pie'  href='informacion/'>Contacte con nosotros</a> | <a class='vinculo_pie'  href='avisolegal/'>Aviso Legal</a> | <a class='vinculo_pie'  href='politica-cookies/'>Pol&iacute;tica de Cookies</a> </div><div class='contenedorPie'><a class='vinculo_pie' target='_blank' href='https://www.facebook.com/dipgra/'><span class='fa fa-facebook-official fa-2x'></span></a>&nbsp;&nbsp;&nbsp;&nbsp<a class='vinculo_pie' target='_blank' href='https://www.dipgra.es/#'><span class='fa fa-rss-square fa-2x'></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a class='vinculo_pie' target='_blank' href='https://twitter.com/dipgra'><span class='fa fa-twitter-square fa-2x'></span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a class='vinculo_pie' target='_blank' href='https://www.youtube.com/user/DiputacionGranada'><span class='fa fa-youtube-square fa-2x'></span></a></div>
+</div>
+
+                        </div> <!-- MAIN-->                 
+                 </div>    
+                 </div>
+            </div>
+    <a class='go-top' href='#'><i class='fa fa-chevron-up fa-2x'></i></a>
+    <!-- JavaScript -->
+    <script type='text/javascript' language='javascript' src='js/boton-inicio.js'></script>             
+    </body>
+</html>

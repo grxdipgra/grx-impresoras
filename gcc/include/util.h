@@ -25,6 +25,7 @@
 #include <cstring>
 #include <vector>
 #include <curl/curl.h> //upload file
+#include <syslog.h> //log
 
 using namespace std;
 
@@ -47,4 +48,5 @@ void stripTags( string &text );                            // Strips any tags
 bool UploadXML();                                          //XML impresoras.
 size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream); // Usado en DownloadXML()
 bool DownloadXML();
+void log_handle(string log);
 #endif

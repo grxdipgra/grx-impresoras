@@ -75,7 +75,7 @@ void stripTags( string &text )
    }
 }
 
-//======================================================================
+//=============== FUNCIONES DE COMUNICACION CON EL SERVIDOR WEB =========
 
 bool UploadXML()
 {
@@ -157,7 +157,8 @@ bool DownloadXML()
 	    CURL *curl;
 	    FILE *fp;
 	    CURLcode res;
-	    char *url = URL_FILE_IMPRESORAS;
+			bool exito;
+	    char *url = (char*)URL_FILE_IMPRESORAS;
 	    char outfilename[FILENAME_MAX] = "./salida.xml";
 	    curl = curl_easy_init();
 	    if (curl) {
@@ -166,18 +167,24 @@ bool DownloadXML()
 	        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
 	        curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 	        res = curl_easy_perform(curl);
+					if(res != CURLE_OK){
+						fprintf(stderr, "curl_easy_perform() failed: %s\n",
+			              curl_easy_strerror(res));
+						exito = false;
+					}
+					else exito = true;
 	        /* always cleanup */
 	        curl_easy_cleanup(curl);
 	        fclose(fp);
 	    }
-	    return true;
+	    return exito;
 	}
 
 /******************* LOG *****************************/
 
-//void log_handle(string log){
+void log_handle(string log){
 /*http://stackoverflow.com/questions/10952515/c-c-syslog-to-custom-file-not-var-log-syslog-but-var-log-mylog-ubuntu-12*/
-//    openlog(NULL, 0, LOG_USER);
-//    syslog(LOG_INFO, (char*)log.c_str());
-//    setbuf(stdout,0);
-//}
+    openlog(NULL, 0, LOG_USER);
+    syslog(LOG_INFO, "%s", (char*)log.c_str());
+    setbuf(stdout,0);
+}

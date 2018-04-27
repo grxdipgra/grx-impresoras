@@ -10,17 +10,17 @@
 <DeviceUri>socket://10.2.10.249:9100</DeviceUri>
 <MakeModel>Canon iR-ADV C2220/2230 PCL</MakeModel>
 <PPD>Canon-iR-ADV-C2220-2230.ppd</PPD>
-<StateTime>1522050252</StateTime>
+<StateTime>1524746546</StateTime>
 <ConfigTime> 1521188783</ConfigTime>
 </Impresora>
 <Impresora>
-<Printer>HP-LaserJet-400-M401dn</Printer>
+<Printer>HP-LaserJet-400</Printer>
 <Info>HP LaserJet 400 M401dn</Info>
 <DeviceUri>socket://10.2.10.201</DeviceUri>
 <MakeModel>HP LaserJet 400 M401 Postscript (recommended)</MakeModel>
-<PPD>HP-LaserJet-400-M401dn.ppd</PPD>
-<StateTime>1523344060</StateTime>
-<ConfigTime> 1518171109</ConfigTime>
+<PPD>HP-LaserJet-400.ppd</PPD>
+<StateTime>1524823252</StateTime>
+<ConfigTime> 1524823252</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>HP-LaserJet-M101-M106</Printer>
@@ -39,6 +39,15 @@
 <PPD>HP_LaserJet_400_M401dn.ppd</PPD>
 <StateTime>1523343911</StateTime>
 <ConfigTime> 1477902357</ConfigTime>
+</Impresora>
+<Impresora>
+<Printer>Lademipolla</Printer>
+<Info>Lademipolla</Info>
+<DeviceUri>socket://10.2.10.249</DeviceUri>
+<MakeModel>Canon iR-ADV C2220/2230 PCL</MakeModel>
+<PPD>Lademipolla.ppd</PPD>
+<StateTime>1524823537</StateTime>
+<ConfigTime> 1524823565</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>Photosmart_2570</Printer>
@@ -73,7 +82,7 @@
 <DeviceUri>dnssd://Samsung%20X4300%20Series%20(SEC84251903E20A)._pdl-datastream._tcp.local/</DeviceUri>
 <MakeModel>Samsung X4300 Series PS</MakeModel>
 <PPD>X4300.ppd</PPD>
-<StateTime>1521196777</StateTime>
+<StateTime>1524822650</StateTime>
 <ConfigTime> 1518171685</ConfigTime>
 </Impresora>
 </Impresoras>

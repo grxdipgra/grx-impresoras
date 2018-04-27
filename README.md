@@ -14,7 +14,9 @@ lpinfo -v realizará el descubrimiento por todos los protocolos disponibles.
 
 lpadmin -p HPLaserJetP3015 -v socket://19.86.82.172 -P  /usr/share/cups/model/HP/LaserJet_P3005-Postscript.ppd
 
+Problema de nombrado de ppd
 
+	Se plantea el problema
 
 Modelo E-R grx-impresoras
 
@@ -59,10 +61,25 @@ Modelo de intercambio de datos con xml:
 		</Impresora>
 	<Impresoras>
 
+	Almacenamiento en el server_artnet
+
+		Se crea un directorio donde se almacenan los ppd y el resto se hace desde
+		la BD.
+
 Logica de negocio con el server.
 
-Cliente -> solicita impresoras del nodo.
-Cliente -> si posee alguna/s nueva/s la/s envia para su registro/actualización.
-Server -> recibe y registra la/s nueva/s impresora/s
-Cliente -> si le falta/n alguna/s la/s solicita para su instalación.
-Cliente -> instala la impresora/s solicitada/s.
+Paso 1:
+	Cliente ->
+				* envía datos de equipo y solicitud de archivo de datos.
+	Server -> Localiza el equipo:
+				* Si no esta registrado lo registra y envía las impresoras del
+				  nodo y ppds.
+				* Si estaba registrado manda impresoras del nodo y ppds para
+				  comprobación por el equipo.
+Paso 2:
+	Cliente ->
+				* Si no estaba registrado comprueba que impresoras instalar (timestamp),
+				  las instala y devuelve timestamp actualizados.
+				* Si estaba registrado instala nuevas y devuelve timestamp actualizados
+				  e impresoras y ppds nuevos si existen.
+	Server -> recibe y registra la/s nueva/s impresora/s y actualiza existentes.

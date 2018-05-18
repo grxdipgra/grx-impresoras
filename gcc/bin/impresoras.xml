@@ -5,15 +5,6 @@
 <mac>7C:05:07:23:12:04</mac>
 </Sistema>
 <Impresora>
-<Printer>Canon-iR-ADV-C2220-2230</Printer>
-<Info>Canon-iR-ADV-C2220-2230</Info>
-<DeviceUri>socket://10.2.10.249:9100</DeviceUri>
-<MakeModel>Canon iR-ADV C2220/2230 PCL</MakeModel>
-<PPD>Canon-iR-ADV-C2220-2230.ppd</PPD>
-<StateTime>1524746546</StateTime>
-<ConfigTime> 1521188783</ConfigTime>
-</Impresora>
-<Impresora>
 <Printer>HP-LaserJet-400</Printer>
 <Info>HP LaserJet 400 M401dn</Info>
 <DeviceUri>socket://10.2.10.201</DeviceUri>
@@ -30,6 +21,15 @@
 <PPD>HP-LaserJet-M101-M106.ppd</PPD>
 <StateTime>1481116187</StateTime>
 <ConfigTime> 1481116187</ConfigTime>
+</Impresora>
+<Impresora>
+<Printer>HP-LaserJet-Professional-P-1102w</Printer>
+<Info>HP LaserJet Professional P 1102w</Info>
+<DeviceUri>socket://10.100.50.170:9100</DeviceUri>
+<MakeModel>HP LaserJet Pro P1102w Foomatic/foo2zjs-z2 (recommended)</MakeModel>
+<PPD>HP-LaserJet-Professional-P-1102w.ppd</PPD>
+<StateTime>1525263350</StateTime>
+<ConfigTime> 1525263317</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>HP_LaserJet_400_M401dn</Printer>
@@ -77,12 +77,21 @@
 <ConfigTime> 1482402359</ConfigTime>
 </Impresora>
 <Impresora>
+<Printer>Samsung-X4300</Printer>
+<Info>Samsung-X4300</Info>
+<DeviceUri>socket://10.7.15.230:9100</DeviceUri>
+<MakeModel>Samsung X4300 Series PS</MakeModel>
+<PPD>Samsung-X4300.ppd</PPD>
+<StateTime>1526041491</StateTime>
+<ConfigTime> 1524824255</ConfigTime>
+</Impresora>
+<Impresora>
 <Printer>X4300</Printer>
 <Info>Samsung X4300 Series (SEC84251903E20A)</Info>
 <DeviceUri>dnssd://Samsung%20X4300%20Series%20(SEC84251903E20A)._pdl-datastream._tcp.local/</DeviceUri>
 <MakeModel>Samsung X4300 Series PS</MakeModel>
 <PPD>X4300.ppd</PPD>
-<StateTime>1524822650</StateTime>
-<ConfigTime> 1518171685</ConfigTime>
+<StateTime>1525425685</StateTime>
+<ConfigTime> 1524823946</ConfigTime>
 </Impresora>
 </Impresoras>

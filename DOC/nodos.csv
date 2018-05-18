@@ -1,0 +1,285 @@
+1,10.100.1.254,Agrón
+2,10.100.2.254,Alamedilla
+3,10.100.3.254,Albolote
+4,10.100.4.254,Albondón
+5,10.100.5.254,Albuñán
+6,10.100.6.254,Albuñol
+7,10.100.7.254,Albuñuelas
+8,10.100.8.254,Aldeire
+9,10.100.9.254,Alfacar
+10,10.100.10.254,Algarinejo
+11,10.100.11.254,Alhama de Granada
+12,10.100.12.254,Alhendín
+13,10.100.13.254,Alicún de Ortega
+14,10.100.14.254,Almegíjar
+15,10.100.15.254,Almuñécar
+16,10.100.158.254,Alpujarra de la Sierra
+17,10.100.16.254,Alquife
+18,10.100.17.254,Arenas del Rey
+19,10.100.18.254,Armilla
+20,10.100.19.254,Atarfe
+21,10.100.20.254,Baza
+22,10.100.21.254,Beas de Granada
+23,10.100.22.254,Beas de Guadix
+24,10.100.23.254,Benalúa
+25,10.100.24.254,Benalúa de las Villas
+26,10.100.25.254,Benamaurel
+27,10.100.26.254,Bérchules
+28,10.100.27.254,Bubión
+29,10.100.28.254,Busquístar
+30,10.100.29.254,Cacín
+31,10.100.30.254,Cádiar
+32,10.100.31.254,Cájar
+33,10.100.90.254,La Calahorra
+34,10.100.32.254,Calicasas
+35,10.100.33.254,Campotéjar
+36,10.100.34.254,Caniles
+37,10.100.35.254,Cáñar
+38,10.100.36.254,Capileira
+39,10.100.37.254,Carataunas
+40,10.100.38.254,Cástaras
+41,10.100.39.254,Castilléjar
+42,10.100.40.254,Castril
+43,10.100.41.254,Cenes de la Vega
+44,10.100.50.254,Chauchina
+45,10.100.51.254,Chimeneas
+46,10.100.52.254,Churriana de la Vega
+47,10.100.42.254,Cijuela
+48,10.100.43.254,Cogollos de Guadix
+49,10.100.44.254,Cogollos de la Vega
+50,10.100.45.254,Colomera
+51,10.100.46.254,Cortes de Baza
+52,10.100.47.254,Cortes y Graena
+53,10.100.166.254,Cuevas del Campo
+54,10.100.48.254,Cúllar
+55,10.100.49.254,Cúllar Vega
+56,10.100.53.254,Darro
+57,10.100.54.254,Dehesas de Guadix
+58,10.100.170.254,Dehesas Viejas
+59,10.100.55.254,Deifontes
+60,10.100.56.254,Diezma
+61,10.100.57.254,Dílar
+62,10.100.58.254,Dólar
+63,10.100.171.254,Domingo Pérez de Granada
+64,10.100.59.254,Dúdar
+65,10.100.60.254,Dúrcal
+66,10.100.61.254,Escúzar
+67,10.100.62.254,Ferreira
+68,10.100.63.254,Fonelas
+69,10.100.64.254,Freila
+70,10.100.65.254,Fuente Vaqueros
+71,10.100.159.254,Las Gabias - Gabia Grande
+72,10.100.66.254,Galera
+73,10.100.67.254,Gobernador
+74,10.100.68.254,Gójar
+75,10.100.69.254,Gor
+76,10.100.70.254,Gorafe
+77,1.1.1.1,Central | Nodos C
+78,10.100.71.254,Guadahortuna
+79,10.100.72.254,Guadix
+80,10.100.160.254,Los Guájares - Guájar Faragüit
+81,10.100.73.254,Gualchos - Castell de Ferro
+82,10.100.74.254,Güéjar Sierra
+83,10.100.75.254,Güevéjar
+84,10.100.76.254,Huélago
+85,10.100.77.254,Huéneja
+86,10.100.78.254,Huéscar
+87,10.100.79.254,Huetor de Santillán
+88,10.100.80.254,Huetor Tájar
+89,10.100.81.254,Huetor Vega
+90,10.100.82.254,Íllora
+91,10.100.83.254,Ítrabo
+92,10.100.84.254,Iznalloz
+93,10.100.174.254,Játar
+94,10.100.85.254,Jayena
+95,10.100.86.254,Jérez del Marquesado
+96,10.100.87.254,Jete
+97,10.100.88.254,Jun
+98,10.100.89.254,Juviles
+99,10.100.91.254,Láchar
+100,10.100.92.254,Lanjarón
+101,10.100.93.254,Lanteira
+102,10.100.94.254,Lecrín - Talará
+103,10.100.95.254,Lentegí
+104,10.100.96.254,Lobras
+105,10.100.97.254,Loja
+106,10.100.98.254,Lugros
+107,10.100.99.254,Lújar
+108,10.100.100.254,La Malahá
+109,10.100.101.254,Maracena
+110,10.100.102.254,Marchal
+111,10.100.103.254,Moclín
+112,10.100.104.254,Molvízar
+113,10.100.105.254,Monachil
+114,10.100.106.254,Montefrío
+115,10.100.107.254,Montejícar
+116,10.100.108.254,Montillana
+117,10.100.109.254,Moraleda de Zafayona
+118,10.100.163.254,Morelábor
+119,10.100.110.254,Motril
+120,10.100.111.254,Murtas
+121,10.100.157.254,Nevada - Laroles
+122,10.100.112.254,Nigüelas
+123,10.100.113.254,Nívar
+124,10.100.114.254,Ogíjares
+125,10.100.115.254,Orce
+126,10.100.116.254,Órgiva
+127,10.100.117.254,Otívar
+128,10.100.119.254,El Padul
+129,10.100.120.254,Pampaneira
+130,10.100.121.254,Pedro Martínez
+131,10.100.122.254,Peligros
+132,10.100.123.254,La Peza
+133,10.100.164.254,El Pinar - Pinos del Valle
+134,10.100.124.254,Pinos Genil
+135,10.100.125.254,Pinos Puente
+136,10.100.126.254,Píñar
+137,10.100.127.254,Polícar
+138,10.100.128.254,Polopos - La Mamola
+139,10.100.129.254,Pórtugos
+140,10.100.130.254,Puebla de Don Fadrique
+141,10.100.131.254,Pulianas
+142,10.100.132.254,Purullena
+143,10.100.133.254,Quéntar
+144,10.100.134.254,Rubite
+145,10.100.135.254,Salar
+146,10.100.136.254,Salobreña
+147,10.100.137.254,Santa Cruz del Comercio
+148,10.100.138.254,Santa Fe
+149,10.100.139.254,Soportújar
+150,10.100.140.254,Sorvilán
+151,10.100.155.254,La Taha - Pitres
+152,10.100.141.254,Torre-Cardela
+153,10.100.142.254,Torvizcón
+154,10.100.143.254,Trevélez
+155,10.100.144.254,Turón
+156,10.100.145.254,Ugíjar
+157,10.100.176.254,Valderrubio
+158,10.100.156.254,El Valle - Restábal
+159,10.100.161.254,Valle del Zalabí - Alcudia de Guadix
+160,10.100.146.254,Válor
+161,10.100.165.254,Vegas del Genil - Purchil
+162,10.100.147.254,Vélez de Benaudalla
+163,10.100.148.254,Ventas de Huelma
+164,10.100.118.254,Villa de Otura
+166,10.100.149.254,Villanueva de las Torres
+167,10.100.150.254,Villanueva Mesía
+168,10.100.151.254,Víznar
+169,10.100.152.254,Zafarraya
+170,10.100.167.254,Zagra
+171,10.100.153.254,La Zubia
+172,10.100.154.254,Zújar
+173,10.56.5.254,Centros Sociales Comunitarios | Alfacar
+174,10.56.9.254,Centros Sociales Comunitarios | Alpujarra
+175,10.56.34.254,Centros Sociales Comunitarios | La Taha - Mecina
+176,10.100.169.254,Nevada - Mairena
+177,10.100.168.254,Nevada - Picena
+179,10.56.13.254,Centros Sociales Comunitarios | Río Fardes - Pedro Martínez - La Calahorra
+180,10.100.178.254,Carchuna - Calahonda
+181,10.56.11.254,Centros Sociales Comunitarios | Costa
+183,10.56.102.254,Centros Sociales Comunitarios | Motril - Calahonda
+184,10.56.100.254,Centros Sociales Comunitarios | Motril - Carchuna
+185,10.56.42.254,Centros Sociales Comunitarios | Salobreña - Lobres
+186,10.100.177.254,Torrenueva
+187,10.56.32.254,Centros Sociales Comunitarios | Algarinejo - Fuentes de Cesna
+188,10.56.15.254,Centros Sociales Comunitarios | Alhama de Granada
+189,10.56.3.254,Centros Sociales Comunitarios | Huetor Tájar - Alhama de Granada - Montefrío
+190,10.100.180.254,El Turro
+191,10.100.173.254,Fornes
+193,10.56.39.254,Centros Sociales Comunitarios | Montefrío - Lojilla
+194,10.100.175.254,Ventas de Zafarraya
+195,10.56.12.254,Centros Sociales Comunitarios | Montes Orientales
+196,10.56.43.254,Juzgado de paz | Guadahortuna
+198,10.56.7.254,Centros Sociales Comunitarios | Norte
+199,10.100.172.254,Bácor-Olivar
+200,10.56.10.254,Centros Sociales Comunitarios | Pinos Puente - Moclín
+201,10.56.36.254,Centros Sociales Comunitarios | Moclín - Limones
+202,10.56.37.254,Centros Sociales Comunitarios | Moclín - Puerto Lope
+203,10.56.38.254,Centros Sociales Comunitarios | Moclín - Tózar
+204,10.56.40.254,Centros Sociales Comunitarios | Pinos Puente - Fuensanta
+205,10.56.41.254,Centros Sociales Comunitarios | Pinos Puente - Trasmulas
+206,10.56.31.254,Centros Sociales Comunitarios | Chimeneas - Castillo de Tajarja
+207,10.56.6.254,Centros Sociales Comunitarios | Santa Fe
+208,10.56.35.254,Centros Sociales Comunitarios | Láchar - Peñuelas
+209,10.56.103.254,Centros Sociales Comunitarios | Santa Fe - El Jau
+210,10.56.101.254,Centros Sociales Comunitarios | Santa Fe - Pedro Ruiz
+211,10.56.30.254,Centros Sociales Comunitarios | Cájar - Bellavista
+212,10.56.2.254,Centros Sociales Comunitarios | Sierra Nevada
+213,10.56.14.254,Centro Municipal de Igualdad y Servicios Sociales | La Zubia
+214,10.56.8.254,Centros Sociales Comunitarios | Valle de Lecrín - Ogíjares - Dúrcal
+215,10.56.1.254,Centros Sociales Comunitarios | Vega - Temple - Las Gabias
+216,10.56.16.254,Centros Sociales Comunitarios | Atarfe
+217,10.56.4.254,Centros Sociales Comunitarios | Vegas Altas
+218,10.6.1.254,Centro Provincial de Drogodependencias
+219,10.6.9.254,Drogodependencias | Albolote (Cárcel provincial)
+220,10.6.8.254,Centro de Tratamiento Ambulatorio | Almuñécar
+221,10.6.3.254,Centro Comarcal de Drogodependencias Ad-Hoc | Baza
+222,10.6.6.254,Drogodependencias COIS Centro
+223,10.6.2.254,Centro de Atención a Drogodependientes COIS Norte
+224,10.6.5.254,Centro Comarcal de Tratamiento a las Adicciones | Guadix
+225,10.6.4.254,Centro de Tratamiento Ambulatorio | Loja
+226,10.6.7.254,Centro de Tratamiento Ambulatorio | Motril
+227,10.20.1.254,Casa Molino Ángel Ganivet
+228,10.155.48.254,Oficina Catastro | Granada
+229,10.100.179.254,CEMCI
+230,10.20.3.254,Centro José Guerrero
+231,10.57.2.254,Granja la Cartuja | Albolote
+232,10.22.1.254,Laboratorio Medio Ambiente + Vivero provincial
+235,10.91.2.254,Oficina Urbanismo | Baza
+236,10.91.3.254,Oficina Urbanismo | Dúrcal
+237,10.20.2.254,Patronato García Lorca
+238,10.155.1.254,Oficina Recaudación | Albolote
+239,10.155.43.254,Oficina Recaudación | Alhama
+240,10.155.36.254,Oficina Recaudación | Baza
+241,10.155.35.254,Oficina Recaudación | Guadix
+242,10.155.37.254,Oficina Recaudación | Huéscar
+243,10.155.41.254,Oficina Recaudación | Íllora
+244,10.155.38.254,Oficina Recaudación | Iznalloz
+245,10.155.45.254,Oficina Recaudación | La Zubia
+246,10.155.44.254,Oficina Recaudación | Loja
+247,10.155.47.254,Oficina Recaudación | Órgiva
+248,10.155.42.254,Oficina Recaudación | Santa Fe
+249,10.10.1.254,RESUR
+250,10.2.10.254,Sede | Planta 1-0
+251,10.2.11.254,Sede | Planta 1-1
+252,10.2.12.254,Sede | Planta 1-2
+253,10.2.21.254,Sede | Planta 2-1
+254,10.2.22.254,Sede | Planta 2-2
+255,10.2.31.254,Sede | Planta 3-1
+256,10.2.32.254,Sede | Planta 3-2
+257,10.2.41.254,Sede | Planta 4-1
+258,10.2.42.254,Sede | Planta 4-2
+259,10.2.50.254,Sede | Planta 5-0
+261,10.100.162.254,Villamena - Cozvíjar
+262,10.7.4.254,Residencia de mayores Rodríguez Penalba
+263,10.57.47.254,Central | Pruebas ADSL
+264,10.57.47.254,Central | Pruebas FTTH
+265,10.155.51.254,Oficina Recaudación | Almuñécar
+266,10.155.49.254,Oficina Recaudación | Albuñol
+267,10.20.4.254,Casa morisca de Horno del Oro
+268,10.100.181.254,Agencia Provincial de Extinción de Incendios | Baza
+269,10.100.251.254,Casa Cuna
+270,10.100.250.254,Central | Nodos C 2
+271,10.100.182.254,Mancomunidad de municipios Marquesado del Zenete
+272,10.15.1.254,Colegio de Niñas Nobles
+273,10.99.1.254,Parque Móvil de Diputación de Granada
+274,10.77.3.254,Oficina Deportes | Vegatem y Sierra Nevada
+275,10.56.33.254,Centros Sociales Comunitarios | Monachil
+276,10.77.4.254,Oficina Deportes | Los Montes -El Mencal - Montes Orientales
+277,10.155.50.254,Oficina Recaudación | La Herradura
+278,10.77.5.254,Oficina Deportes | La Sagra y Jabalcón
+279,10.77.1.254,Oficina Deportes | Río Fardes y Marquesado
+280,10.77.7.254,Oficina Deportes | La Alpujarra Oriental y Occidental
+281,10.77.6.254,Oficina Deportes | Costa-Contraviesa y Valle de Lecrín
+282,10.77.2.254,Oficina Deportes | Albolote
+283,10.77.10.254,Oficina Deportes | Ugíjar
+284,10.77.8.254,Oficina Deportes | Alhama de Granada
+285,10.77.9.254,Oficina Deportes | Villanueva de Mesía
+287, ,Mancomunidad de Municipios de la Alpujarra Granadina
+288, ,Mancomunidad de Municipios Comarca de Huéscar
+289,10.100.185.254,Mancomunidad de Municipios Ribera Baja del Genil
+290,10.100.183.254,Consorcio Vega - Sierra Elvira
+291, ,Consorcio para el Desarrollo Montes Orientales
+292, ,Consorcio para el Desarrolo Rural del Poniente Granadino
+293,10.100.184.254,Jefatura de Policía | Loja
+294, ,Consorcio Sierra Nevada - Vega Sur

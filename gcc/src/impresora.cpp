@@ -68,22 +68,24 @@ string impresora::get_instalacion()
 string impresora::get_tiempo_sin_uso()
 {
 	struct tm *timeinfo;
-	//tm *p;
+	tm *p;
 	long int ahora, time_impresora;
+	ostringstream strs; //convertir int to string
 	time (&ahora);
 	time_t diferencia;
 	time_impresora = atoi( get_atributo("StateTime").c_str() );
 	diferencia = ahora - time_impresora;
-	//p = gmtime(&diferencia);
-	//cout << p->tm_yday << " dias ";
+	p = gmtime(&diferencia);
+	strs << p->tm_yday << " dias ";
 	//cout << p->tm_hour << " horas ";
 	//cout << p->tm_min << " minutos ";
 	//cout << p->tm_sec << " segundos" << endl;
-	timeinfo = localtime (&diferencia);
-	ostringstream strs; //convertir int to string
-	strs << ahora - time_impresora;
+	//timeinfo = localtime (&diferencia);
+	//ostringstream strs; //convertir int to string
+	//strs << ahora - time_impresora;
   string str = strs.str();
-	return asctime(timeinfo);
+	//return asctime(timeinfo);
+	return str;
 }
 
 /******************************************************************************/

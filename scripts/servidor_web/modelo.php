@@ -118,15 +118,42 @@ class BaseDatos
       }
     }
 
-    public function modificar($tabla, $columnas, $datos)
+    public function modificar($tabla, $columnas, $datos, $ids)
     {
+      //UPDATE tabla SET columna="2003-06-01" WHERE ID=dato;
+      //UPDATE tabla SET campo = ‘valor’, campo2 = ‘valor2’ WHERE condición;
 
+      //Primero consultar que no existe;
     }
-    
+
     public function borrar($tabla, $columnas, $datos)
     {
-
+      if ($this->buscar($tabla, $columnas, $datos) != 0) //si encuentra el registro
+      {
+        $claves = "";
+        $valores = "";
+        foreach($columnas as $clave)
+        {
+          if ($claves == "")
+          {
+            $claves = $claves." ".$clave;
+          }
+          else $claves = $claves.",".$clave;
+        }
+        foreach($datos as $clavedato=>$valordato)
+        {
+          if ($valores == "")
+          {
+            $valores = $valores." '".$valordato."'";
+          }
+          else $valores = $valores.", '".$valordato."'";
+        }
+      $consulta = "DELETE FROM ". $tabla . " WHERE ".$clave."=".$valores;
+      echo "Consulta: ".$consulta." ";
+      $query = mysql_query($consulta, $this->conexion);
+      if (!$query) die("query failed: " . mysql_error());
     }
+  }
 }
 
 ?>

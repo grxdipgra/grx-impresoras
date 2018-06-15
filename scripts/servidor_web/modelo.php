@@ -37,8 +37,11 @@ class BaseDatos
         }
     }
 
-    public function buscar($tabla, $columnas, $datos)
+    public function set_consulta($tipo, $tabla, $columnas, $datos)
     {
+      echo "N&uacute;mero de columnas: " . count($columnas) . "</br>";
+      echo "N&uacute;mero de datos: " . count($datos) . "</br>";
+      $consulta = "";
       $claves = "";
       $valores = "";
       foreach($columnas as $clave)
@@ -49,21 +52,58 @@ class BaseDatos
         }
         else $claves = $claves.",".$clave;
       }
-      foreach($datos as $clavedato=>$valordato)
+      switch ($tipo)
       {
-        if ($valordato <> end($datos))
-        {
-          $valores = $valores." ".$clavedato." LIKE '".$valordato."' AND";
-        }
-        else $valores = $valores." ".$clavedato." LIKE '".$valordato."'";
+        case "buscar":
+          end($datos); //mueve el cursor al ultimo elemento del array
+          $last_key = key($datos); //obtiene el ultimo elemento del array
+          foreach($datos as $clavedato=>$valordato)
+          {
+            if ($clavedato != $last_key)
+            {
+              $valores = $valores." ".$clavedato." LIKE '".$valordato."' AND";
+            }
+            else $valores = $valores." ".$clavedato." LIKE '".$valordato."'";
+          }
+          $consulta = "SELECT ".$claves." from ".$tabla." WHERE ".$valores;
+        break;
+        case "insertar":
+          foreach($datos as $clavedato=>$valordato)
+          {
+            if ($valores == "")
+            {
+              $valores = $valores." '".$valordato."'";
+            }
+            else $valores = $valores.", '".$valordato."'";
+          }
+          $consulta = "INSERT INTO ". $tabla . "(".$claves.") VALUES (".$valores.")";
+        break;
+        case "borrar":
+          foreach($datos as $clavedato=>$valordato)
+          {
+            if ($valores == "")
+            {
+              $valores = $valores." '".$valordato."'";
+            }
+            else $valores = $valores.", '".$valordato."'";
+          }
+          $consulta = "DELETE FROM ". $tabla . " WHERE ".$claves."=".$valores;
+        break;
+        case "modificar":
+        break;
       }
       echo $claves;
       echo "<br>";
       echo $valores;
       echo "<br>";
-      $consulta = "SELECT ".$claves." from ".$tabla." WHERE ".$valores;
+      return $consulta;
+    }
+
+    public function buscar($tabla, $columnas, $datos)
+    {
+      $consulta = $this->set_consulta("buscar", $tabla, $columnas, $datos);
       $query = mysql_query($consulta, $this->conexion);
-      echo "Consulta: ".$consulta." ";
+      echo "Consulta: ".$consulta." </br>";
       echo "Filas: ". mysql_num_rows($query);
       echo "<br>";
       if (!$query)
@@ -72,9 +112,9 @@ class BaseDatos
       }
       else {
             echo "El resultado de la consulta a la tabla $tabla es ";
-            for($x = 0; $x <= mysql_num_rows($query); $x++)
+            for($x = 0; $x < mysql_num_rows($query); $x++)
             {
-              for($i = 0; $i <= count($columnas); $i++)
+              for($i = 0; $i < count($columnas); $i++)
               {
                 $resultado = mysql_result($query, $x, $i);
                 echo $resultado." ";
@@ -93,25 +133,7 @@ class BaseDatos
       //Primero consultar que no existe;
       if ($this->buscar($tabla, $columnas, $datos) == 0)
       {
-        $claves = "";
-        $valores = "";
-        foreach($columnas as $clave)
-        {
-          if ($claves == "")
-          {
-            $claves = $claves." ".$clave;
-          }
-          else $claves = $claves.",".$clave;
-        }
-        foreach($datos as $clavedato=>$valordato)
-        {
-          if ($valores == "")
-          {
-            $valores = $valores." '".$valordato."'";
-          }
-          else $valores = $valores.", '".$valordato."'";
-        }
-        $consulta = "INSERT INTO ". $tabla . "(".$claves.") VALUES (".$valores.")";
+        $consulta = $this->set_consulta("insertar", $tabla, $columnas, $datos);
         echo "Consulta: ".$consulta." ";
         $query = mysql_query($consulta, $this->conexion);
         if (!$query) die("query failed: " . mysql_error());
@@ -120,6 +142,7 @@ class BaseDatos
 
     public function modificar($tabla, $columnas, $datos, $ids)
     {
+
       //UPDATE tabla SET columna="2003-06-01" WHERE ID=dato;
       //UPDATE tabla SET campo = ‘valor’, campo2 = ‘valor2’ WHERE condición;
 
@@ -130,25 +153,7 @@ class BaseDatos
     {
       if ($this->buscar($tabla, $columnas, $datos) != 0) //si encuentra el registro
       {
-        $claves = "";
-        $valores = "";
-        foreach($columnas as $clave)
-        {
-          if ($claves == "")
-          {
-            $claves = $claves." ".$clave;
-          }
-          else $claves = $claves.",".$clave;
-        }
-        foreach($datos as $clavedato=>$valordato)
-        {
-          if ($valores == "")
-          {
-            $valores = $valores." '".$valordato."'";
-          }
-          else $valores = $valores.", '".$valordato."'";
-        }
-      $consulta = "DELETE FROM ". $tabla . " WHERE ".$clave."=".$valores;
+      $consulta = $this->set_consulta("borrar", $tabla, $columnas, $datos);
       echo "Consulta: ".$consulta." ";
       $query = mysql_query($consulta, $this->conexion);
       if (!$query) die("query failed: " . mysql_error());

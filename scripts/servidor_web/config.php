@@ -1,8 +1,8 @@
 <?php
 
 define('HOST','localhost'); //AQUI VA TU HOST
-define('USER','');
-define('PASS','');
+define('USER','alex');
+define('PASS','Pepit0');
 define('DBNAME','grx_impresoras');
 
 ?>

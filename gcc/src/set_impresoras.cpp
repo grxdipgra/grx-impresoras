@@ -19,7 +19,9 @@ set_impresoras::set_impresoras()
 	ifstream printers_conf;
   string nombre = ARCHIVO_CONFIGURACION;
   string comienzo_impresora = "<Printer";
+	string comienzo_impresora_default = "<DefaultPrinter";
 	string fin_impresora = "</Printer>";
+	string fin_impresora_default = "<DefaultPrinter";
 	string printer, info, conexion, driver, uso, instalacion;
 	string comienzo_info = "Info";
 	string comienzo_conexion = "DeviceURI";
@@ -30,55 +32,92 @@ set_impresoras::set_impresoras()
 	string linea;
   sys_info();
   ip_nodo();
-
 	//cout << "Archivo de configuración es: " << nombre << endl ;
   printers_conf.open ( nombre.c_str() , ios::in);
 	if(printers_conf.good()){
     	if (printers_conf.is_open()) {
         	while (! printers_conf.eof() ) {
             	getline (printers_conf,linea);
-				if(linea.find(comienzo_impresora) != string::npos){
-					printer = linea.substr(9,linea.length()-10);
-					//cout << "Impresora CUPS: " << printer << endl;
-					//cout << "PPD: " << printer << ppd << endl;
-					while (linea.find(fin_impresora) == string::npos){
-						getline (printers_conf,linea);
-						if(linea.find(comienzo_info) != string::npos){
-							info = linea.substr(5,linea.length()-5);
-							//cout << "Info: " << info << endl;
-						}
-						if(linea.find(comienzo_conexion) != string::npos){
-							conexion = linea.substr(10,linea.length()-10);
-							//cout << "Conexión: " << conexion << endl;
-						}
-						if(linea.find(comienzo_driver) != string::npos){
-							driver = linea.substr(10,linea.length()-10);
+							if(linea.find(comienzo_impresora_default) != string::npos){
+								printer = linea.substr(16,linea.length()-17);
+								//cout << "Impresora CUPS: " << printer << endl;
+								//cout << "PPD: " << printer << ppd << endl;
+								while (linea.find(fin_impresora_default) == string::npos){
+									getline (printers_conf,linea);
+									if(linea.find(comienzo_info) != string::npos){
+										info = linea.substr(5,linea.length()-5);
+										//cout << "Info: " << info << endl;
+									}
+									if(linea.find(comienzo_conexion) != string::npos){
+										conexion = linea.substr(10,linea.length()-10);
+										//cout << "Conexión: " << conexion << endl;
+									}
+									if(linea.find(comienzo_driver) != string::npos){
+										driver = linea.substr(10,linea.length()-10);
+										//cout << "Driver: " << driver << endl;
+									}
+									if(linea.find(ultimo_uso) != string::npos){
+										uso = linea.substr(10,linea.length()-10);
+										//cout << "Driver: " << driver << endl;
+									}
+									if(linea.find(time_instalacion) != string::npos){
+										instalacion = linea.substr(10,linea.length()-10);
 							//cout << "Driver: " << driver << endl;
-						}
-						if(linea.find(ultimo_uso) != string::npos){
-							uso = linea.substr(10,linea.length()-10);
+									}
+								}
+								//cout << "******************" << endl;
+								aux.set_atributo("Printer", printer);
+								ppd = ".ppd";
+								ppd = printer + ppd;
+								aux.set_atributo("PPD", ppd);
+								aux.set_atributo("Info", info);
+								aux.set_atributo("DeviceUri",conexion);
+								aux.set_atributo("MakeModel",driver);
+								aux.set_atributo("StateTime",uso);
+								aux.set_atributo("ConfigTime",instalacion);
+								impresoras.push_back(aux);
+							}
+							else if(linea.find(comienzo_impresora) != string::npos){
+								printer = linea.substr(9,linea.length()-10);
+								//cout << "Impresora CUPS: " << printer << endl;
+								//cout << "PPD: " << printer << ppd << endl;
+								while (linea.find(fin_impresora) == string::npos){
+									getline (printers_conf,linea);
+									if(linea.find(comienzo_info) != string::npos){
+										info = linea.substr(5,linea.length()-5);
+										//cout << "Info: " << info << endl;
+									}
+									if(linea.find(comienzo_conexion) != string::npos){
+										conexion = linea.substr(10,linea.length()-10);
+										//cout << "Conexión: " << conexion << endl;
+									}
+									if(linea.find(comienzo_driver) != string::npos){
+										driver = linea.substr(10,linea.length()-10);
+										//cout << "Driver: " << driver << endl;
+									}
+									if(linea.find(ultimo_uso) != string::npos){
+										uso = linea.substr(10,linea.length()-10);
+										//cout << "Driver: " << driver << endl;
+									}
+									if(linea.find(time_instalacion) != string::npos){
+										instalacion = linea.substr(10,linea.length()-10);
 							//cout << "Driver: " << driver << endl;
-						}
-						if(linea.find(time_instalacion) != string::npos){
-							instalacion = linea.substr(10,linea.length()-10);
-							//cout << "Driver: " << driver << endl;
-						}
-					}
-				//cout << "******************" << endl;
-				aux.set_atributo("Printer", printer);
-				ppd = ".ppd";
-				ppd = printer + ppd;
-				aux.set_atributo("PPD", ppd);
-				aux.set_atributo("Info", info);
-				aux.set_atributo("DeviceUri",conexion);
-				aux.set_atributo("MakeModel",driver);
-				aux.set_atributo("StateTime",uso);
-				aux.set_atributo("ConfigTime",instalacion);
-				impresoras.push_back(aux);
-				}
+									}
+								}
+								//cout << "******************" << endl;
+								aux.set_atributo("Printer", printer);
+								ppd = ".ppd";
+								ppd = printer + ppd;
+								aux.set_atributo("PPD", ppd);
+								aux.set_atributo("Info", info);
+								aux.set_atributo("DeviceUri",conexion);
+								aux.set_atributo("MakeModel",driver);
+								aux.set_atributo("StateTime",uso);
+								aux.set_atributo("ConfigTime",instalacion);
+								impresoras.push_back(aux);
+							}
         	}
         	printers_conf.close();
-
     	}
 			CrearXml();
 	}

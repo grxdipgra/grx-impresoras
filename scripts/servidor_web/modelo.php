@@ -89,8 +89,6 @@ class BaseDatos
           }
           $consulta = "DELETE FROM ". $tabla . " WHERE ".$claves."=".$valores;
         break;
-        case "modificar":
-        break;
       }
       echo $claves;
       echo "<br>";
@@ -140,20 +138,39 @@ class BaseDatos
       }
     }
 
-    public function modificar($tabla, $columnas, $datos, $ids)
+    public function modificar($tabla, $columnas, $datos, $nuevos, $id)
     {
-
+      //Primero consultar que no existe;
+      $valores = "";
+      if ($this->buscar($tabla, $columnas, $datos) != 0) //si encuentra el registro
+      {
+        if (count($columnas) == 1){
+          $valores = $columnas[0] . "= '" . $nuevos[0] . "'";
+        }
+        else{
+         for($i = 0; $i < count($columnas); $i++)
+         {
+            if ($valores == "")
+            {//UPDATE tabla SET campo = ‘valor’, campo2 = ‘valor2’ WHERE condición;
+              $valores = $columnas[$i] . "='" . $nuevos[$i] . "'";
+            }
+           else $valores = $valores. "," . $columnas[$i] . "= '" . $nuevos[$i] . "'";
+         }
+        }
+       $consulta = "UPDATE " . $tabla . " SET " . $valores . " WHERE ".$id['clave']."=".$id['dato'];
+       echo "Consulta: ".$consulta." ";
+       $query = mysql_query($consulta, $this->conexion);
+       if (!$query) die("query failed: " . mysql_error());
       //UPDATE tabla SET columna="2003-06-01" WHERE ID=dato;
       //UPDATE tabla SET campo = ‘valor’, campo2 = ‘valor2’ WHERE condición;
-
-      //Primero consultar que no existe;
+      }
     }
 
     public function borrar($tabla, $columnas, $datos)
     {
       if ($this->buscar($tabla, $columnas, $datos) != 0) //si encuentra el registro
       {
-      $consulta = $this->set_consulta("borrar", $tabla, $columnas, $datos);
+      $consulta = $this->set_consulta("borrar", $tabla, $columnas, $datos, $id);
       echo "Consulta: ".$consulta." ";
       $query = mysql_query($consulta, $this->conexion);
       if (!$query) die("query failed: " . mysql_error());

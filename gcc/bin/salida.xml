@@ -5,76 +5,22 @@
 <mac>7C:05:07:23:12:04</mac>
 </Sistema>
 <Impresora>
-<Printer>HP-LaserJet-400</Printer>
-<Info>HP LaserJet 400 M401dn</Info>
-<DeviceUri>socket://10.2.10.201</DeviceUri>
-<MakeModel>HP LaserJet 400 M401 Postscript (recommended)</MakeModel>
-<PPD>HP-LaserJet-400.ppd</PPD>
-<StateTime>1524823252</StateTime>
-<ConfigTime> 1524823252</ConfigTime>
-</Impresora>
-<Impresora>
-<Printer>HP-LaserJet-M101-M106</Printer>
-<Info>HP LaserJet M101-M106</Info>
-<DeviceUri>usb://HP/LaserJet%20M101-M106?serial=VNC3B07641</DeviceUri>
-<MakeModel>HP LaserJet M506 Postscript (recommended)</MakeModel>
-<PPD>HP-LaserJet-M101-M106.ppd</PPD>
-<StateTime>1481116187</StateTime>
-<ConfigTime> 1481116187</ConfigTime>
-</Impresora>
-<Impresora>
-<Printer>HP-LaserJet-Professional-P-1102w</Printer>
-<Info>HP LaserJet Professional P 1102w</Info>
-<DeviceUri>socket://10.100.50.170:9100</DeviceUri>
-<MakeModel>HP LaserJet Pro P1102w Foomatic/foo2zjs-z2 (recommended)</MakeModel>
-<PPD>HP-LaserJet-Professional-P-1102w.ppd</PPD>
-<StateTime>1525263350</StateTime>
-<ConfigTime> 1525263317</ConfigTime>
-</Impresora>
-<Impresora>
 <Printer>HP_LaserJet_400_M401dn</Printer>
 <Info>HP_LaserJet_400_M401dn</Info>
 <DeviceUri>hp:/net/HP_LaserJet_400_M401dn?ip=10.2.10.201</DeviceUri>
 <MakeModel>HP LaserJet 400 M401 Postscript (recommended)</MakeModel>
 <PPD>HP_LaserJet_400_M401dn.ppd</PPD>
-<StateTime>1523343911</StateTime>
+<StateTime>1529394662</StateTime>
 <ConfigTime> 1477902357</ConfigTime>
 </Impresora>
 <Impresora>
-<Printer>Lademipolla</Printer>
-<Info>Lademipolla</Info>
-<DeviceUri>socket://10.2.10.249</DeviceUri>
-<MakeModel>Canon iR-ADV C2220/2230 PCL</MakeModel>
-<PPD>Lademipolla.ppd</PPD>
-<StateTime>1524823537</StateTime>
-<ConfigTime> 1524823565</ConfigTime>
-</Impresora>
-<Impresora>
 <Printer>Photosmart_2570</Printer>
-<Info>Photosmart_2570</Info>
-<DeviceUri>hp:/net/Photosmart_2570_series?ip=10.168.1.230</DeviceUri>
-<MakeModel>HP Photosmart 2570 Series, hpcups 3.16.3</MakeModel>
+<Info>HP_LaserJet_400_M401dn</Info>
+<DeviceUri>hp:/net/HP_LaserJet_400_M401dn?ip=10.2.10.201</DeviceUri>
+<MakeModel>HP LaserJet 400 M401 Postscript (recommended)</MakeModel>
 <PPD>Photosmart_2570.ppd</PPD>
-<StateTime>1523044036</StateTime>
-<ConfigTime> 1523044036</ConfigTime>
-</Impresora>
-<Impresora>
-<Printer>PT-P900-etiquetas</Printer>
-<Info>PT-P900</Info>
-<DeviceUri>usb://Brother/PT-P900W?serial=000H6Z541974</DeviceUri>
-<MakeModel>Brother PT-P900 CUPS</MakeModel>
-<PPD>PT-P900-etiquetas.ppd</PPD>
-<StateTime>1520583067</StateTime>
-<ConfigTime> 1520583067</ConfigTime>
-</Impresora>
-<Impresora>
-<Printer>QL-1060N</Printer>
-<Info>QL-1060N</Info>
-<DeviceUri>dnssd://Brother%20QL-1060N._pdl-datastream._tcp.local/</DeviceUri>
-<MakeModel>Brother QL-1060N CUPS v1.1</MakeModel>
-<PPD>QL-1060N.ppd</PPD>
-<StateTime>1518170309</StateTime>
-<ConfigTime> 1482402359</ConfigTime>
+<StateTime>1529394662</StateTime>
+<ConfigTime> 1477902357</ConfigTime>
 </Impresora>
 <Impresora>
 <Printer>Samsung-X4300</Printer>
@@ -84,14 +30,5 @@
 <PPD>Samsung-X4300.ppd</PPD>
 <StateTime>1526041491</StateTime>
 <ConfigTime> 1524824255</ConfigTime>
-</Impresora>
-<Impresora>
-<Printer>X4300</Printer>
-<Info>Samsung X4300 Series (SEC84251903E20A)</Info>
-<DeviceUri>dnssd://Samsung%20X4300%20Series%20(SEC84251903E20A)._pdl-datastream._tcp.local/</DeviceUri>
-<MakeModel>Samsung X4300 Series PS</MakeModel>
-<PPD>X4300.ppd</PPD>
-<StateTime>1525425685</StateTime>
-<ConfigTime> 1524823946</ConfigTime>
 </Impresora>
 </Impresoras>

@@ -67,13 +67,13 @@ string impresora::get_instalacion()
 
 string impresora::get_tiempo_sin_uso()
 {
-	struct tm *timeinfo;
+	//struct tm *timeinfo;
 	tm *p;
 	long int ahora, time_impresora;
 	ostringstream strs; //convertir int to string
 	time (&ahora);
 	time_t diferencia;
-	time_impresora = atoi( get_atributo("StateTime").c_str() );
+	time_impresora = atoi( get_atributo("StateTime").c_str());
 	diferencia = ahora - time_impresora;
 	p = gmtime(&diferencia);
 	strs << p->tm_yday << " dias ";

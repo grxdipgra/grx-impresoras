@@ -23,8 +23,8 @@ $(OBJ)/%.o : $(SRC)/%.cpp
 
 # Creacion del ejecutable bin/grx-impresoras
 impresoras: $(BIN)/impresoras
-$(BIN)/impresoras: $(OBJ)/impresora.o $(OBJ)/set_impresoras.o $(OBJ)/grx-impresoras.o $(OBJ)/util.o
-	$(CC) $(CPPFLAGS) -o $(BIN)/impresoras $(OBJ)/grx-impresoras.o $(OBJ)/impresora.o  $(OBJ)/set_impresoras.o $(OBJ)/util.o -lcurl
+$(BIN)/impresoras: $(OBJ)/impresora.o $(OBJ)/set_impresoras.o $(OBJ)/grx-impresoras.o $(OBJ)/simplexml.o $(OBJ)/util.o
+	$(CC) $(CPPFLAGS) -o $(BIN)/impresoras $(OBJ)/grx-impresoras.o $(OBJ)/impresora.o  $(OBJ)/set_impresoras.o $(OBJ)/simplexml.o $(OBJ)/util.o -lcurl
 
 # Documentacion
 doc:

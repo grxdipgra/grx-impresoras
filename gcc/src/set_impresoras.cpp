@@ -268,7 +268,7 @@ void set_impresoras::CrearXml(){
 	ofstream xmlfile(ARCHIVO_XML , ios::out | ios::trunc);
 	//xmlfile.open(ARCHIVO_XML);
 	if (xmlfile.good()){
-		xmlfile << "<Impresoras>" << endl;
+		xmlfile << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" << endl;
 		xmlfile << "<Sistema>" << endl;
 		xmlfile << "<hostname>" << hostname <<"</hostname>" << endl;
 		xmlfile << "<ip>" << nodo << "</ip>" << endl;
@@ -300,7 +300,6 @@ void set_impresoras::CrearXml(){
 			xmlfile << "</ConfigTime>" << endl;
 			xmlfile << "</Impresora>" << endl;
 		}
-		xmlfile << "</Impresoras>" << endl;
 		xmlfile.close();
 	}
 	else {

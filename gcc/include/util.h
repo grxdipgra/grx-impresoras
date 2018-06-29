@@ -13,6 +13,7 @@
 #define URL_BD_IMPRESORAS "http://10.7.15.69/curl/curl.php"
 #define URL_FILE_IMPRESORAS "http://10.7.15.69/curl/files/impresoras.xml"
 #define ARCHIVO_XML "./impresoras.xml"
+#define DESCARGADO_XML "./descargado.xml"
 
 /******************************************************************************/
 #include <stdlib.h>
@@ -26,6 +27,7 @@
 #include <vector>
 #include <curl/curl.h> //upload file
 #include <syslog.h> //log
+#include <simplexml.h>
 
 using namespace std;
 
@@ -48,5 +50,6 @@ void stripTags( string &text );                            // Strips any tags
 bool UploadXML();                                          //XML impresoras.
 size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream); // Usado en DownloadXML()
 bool DownloadXML();
+void PrintXml();
 void log_handle(string log);
 #endif

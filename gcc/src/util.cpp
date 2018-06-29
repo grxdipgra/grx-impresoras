@@ -159,7 +159,7 @@ bool DownloadXML()
 	    CURLcode res;
 			bool exito;
 	    char *url = (char*)URL_FILE_IMPRESORAS;
-	    char outfilename[FILENAME_MAX] = "./salida.xml";
+	    char outfilename[FILENAME_MAX] = "./descargado.xml";
 	    curl = curl_easy_init();
 	    if (curl) {
 	        fp = fopen(outfilename,"wb");
@@ -179,6 +179,34 @@ bool DownloadXML()
 	    }
 	    return exito;
 	}
+
+	void PrintXml()
+{
+
+	simplexml *root;
+  string nombre = DESCARGADO_XML;
+	ifstream buffer;
+	//cout << "Archivo de configuración es: " << nombre << endl ;
+  buffer.open ( nombre.c_str() , ios::in);
+	if(buffer.good()){
+    	if (buffer.is_open()) {
+				string contenido { istreambuf_iterator<char>(buffer), istreambuf_iterator<char>() };
+				char *str = new char[contenido.length()+1];
+				strcpy(str,contenido.c_str());
+				cout << str << endl;
+				root = new simplexml(str);
+				//delete[] str;
+				//cout << root->child("Impresoras")->child("Sistema")->child("hostname")->value() << endl;
+  			//cout << root->child("Impresoras")->child("Sistema")->child("mac")->value() << endl;
+			}
+	}
+	else {
+		cerr << "\033[1;31mError: \033[0m";
+		cerr << "Fallo al abrir el fichero descargado. ";
+		cerr  << strerror(errno) << "." << endl;
+	}
+
+}
 
 /******************* LOG *****************************/
 

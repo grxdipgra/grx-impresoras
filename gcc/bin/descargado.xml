@@ -1,4 +1,4 @@
-<Impresoras>
+<?xml version="1.0" encoding="UTF-8"?>
 <Sistema>
 <hostname>esnaia</hostname>
 <ip>10.7.15.212</ip>
@@ -31,4 +31,3 @@
 <StateTime>1526041491</StateTime>
 <ConfigTime> 1524824255</ConfigTime>
 </Impresora>
-</Impresoras>

@@ -8,7 +8,7 @@ if (file_exists('files/impresoras.xml')) {
     echo "hostname: " . $xml->Sistema[0]->hostname . "</br>";
     echo "mac: " . $xml->Sistema[0]->mac. "</br>";
 } else {
-    exit('Error abriendo test.xml.');
+    exit('Error abriendo impresoras.xml.');
 }
 
 $db = new BaseDatos();

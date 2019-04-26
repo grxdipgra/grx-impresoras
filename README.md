@@ -61,12 +61,12 @@ Modelo de intercambio de datos con xml:
 		</Impresora>
 	<Impresoras>
 
-	Almacenamiento en el server_artnet
+	Almacenamiento en el servidor
 
 		Se crea un directorio donde se almacenan los ppd y el resto se hace desde
 		la BD.
 
-Logica de negocio con el server.
+Logica de negocio con el servidor.
 
 Paso 1:
 	Cliente ->
